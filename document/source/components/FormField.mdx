@@ -1,0 +1,74 @@
+---
+title: Form Field
+icon: edit
+description: Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms.
+---
+
+import { ToggleField } from 'material-cell/source/ToggleField';
+import { Form } from 'boot-cell/source/Form/Form';
+
+import { Example } from '../../../source/component/Example';
+
+## Switches
+
+Switches toggle the state of a single settings option. The option that the switch controls,
+as well as the state it’s in, should be made clear from the corresponding inline label.
+
+<Example>
+    <ToggleField type="checkbox" switch>
+        Toggle this custom switch
+    </ToggleField>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { ToggleField } from 'material-cell/source/ToggleField';
+
+render(
+    <ToggleField type="checkbox" switch>
+        Toggle this custom switch
+    </ToggleField>
+);
+```
+
+### Validation
+
+For details about how validation works, please check [this page][1]. The following section only provides some basic examples.
+
+<Example>
+    <Form validated>
+        <ToggleField
+            type="checkbox"
+            switch
+            required
+            validMode="feedback"
+            validMessage="Example valid feedback text"
+            invalidMessage="Example invalid feedback text"
+        >
+            Toggle this custom switch
+        </ToggleField>
+    </Form>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Form } from 'boot-cell/source/Form/Form';
+import { ToggleField } from 'material-cell/source/ToggleField';
+
+render(
+    <Form validated>
+        <ToggleField
+            type="checkbox"
+            switch
+            required
+            validMode="feedback"
+            validMessage="Example valid feedback text"
+            invalidMessage="Example invalid feedback text"
+        >
+            Toggle this custom switch
+        </ToggleField>
+    </Form>
+);
+```
+
+[1]: https://bootstrap.web-cell.dev/#components/formfield

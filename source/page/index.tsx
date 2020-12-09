@@ -10,7 +10,7 @@ import {
     DrawerMenuItem
 } from 'material-cell/source/DrawerNav';
 import { Icon } from 'material-cell/source/Icon';
-import { PageFrame } from '../component';
+import { DocumentBox } from '../component/DocumentBox';
 
 import logo from '../image/logo.png';
 import routes from '../../document/dist';
@@ -23,6 +23,14 @@ import { HomePage } from './Home';
 })
 export class PageRouter extends mixin() {
     protected history = new History();
+    protected topMenu = [
+        { title: 'WebCell', href: 'https://web-cell.dev/' },
+        { title: 'BootCell', href: 'https://bootstrap.web-cell.dev/' },
+        {
+            title: 'Source code',
+            href: 'https://github.com/EasyWebApp/material-cell'
+        }
+    ];
     protected routes = [
         { paths: [''], component: HomePage },
         ...routes.map(({ paths, component, meta: { title, description } }) => ({
@@ -31,9 +39,9 @@ export class PageRouter extends mixin() {
                 const Content = await component();
 
                 return () => (
-                    <PageFrame title={title} description={description}>
+                    <DocumentBox {...{ title, description }}>
                         <Content />
-                    </PageFrame>
+                    </DocumentBox>
                 );
             }
         }))
@@ -66,8 +74,11 @@ export class PageRouter extends mixin() {
                     open={this.drawerOpen}
                     onClose={() => (this.drawerOpen = false)}
                 >
-                    <NavLink href="https://web-cell.dev/">WebCell</NavLink>
-
+                    {this.topMenu.map(({ title, href }) => (
+                        <NavLink target="_blank" href={href}>
+                            {title}
+                        </NavLink>
+                    ))}
                     <DrawerMenu title="Components">
                         {routes.map(
                             ({ paths: [href], meta: { title, icon } }) => (

@@ -2,7 +2,7 @@ import { createCell } from 'web-cell';
 import { Button } from 'boot-cell/source/Form/Button';
 import { CommandLine } from 'github-web-widget/source/CommandLine';
 
-import { PageFrame } from '../component';
+import { PageFrame } from '../component/PageFrame';
 import routes from '../../document/dist';
 
 export function HomePage() {
@@ -16,8 +16,8 @@ export function HomePage() {
                 </Button>
             }
         >
-            <CommandLine>
-                npm install material-cell boot-cell web-cell classnames
+            <CommandLine style={{ margin: 'auto', width: '20rem' }}>
+                npm install material-cell
             </CommandLine>
         </PageFrame>
     );

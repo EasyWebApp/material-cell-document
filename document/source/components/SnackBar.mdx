@@ -1,0 +1,235 @@
+---
+title: Snack Bar
+icon: info
+description: Snackbars provide brief feedback about an operation through a message at the bottom of the screen.
+---
+
+import { openSnackBar } from 'material-cell/source/SnackBar';
+import { Button } from 'material-cell/source/Button';
+
+import { Example } from '../../../source/component/Example';
+
+## Behaviour
+
+Since Material only provides styles for snackbars, when coding JavaScript to interact with snackbars for particular projects,
+please be aware of the following Google Material Design guidelines:
+
+-   Only one snackbar may be displayed at a time. When a second snackbar is triggered while the first is displayed, the first should start the contraction motion downwards before the second one animates upwards.
+-   Snackbars automatically disappear after a timeout or user interaction elsewhere.
+-   Snackbars may contain a single action, neither of which may be “Cancel” or “Dismiss”.
+-   When an unrelated dialog or popup occurs while the snackbar is up, the snackbar timeout will reset upon the window focus being regained. This is to ensure that the user will be able to read the snackbar for the full intended duration.
+
+## Examples
+
+### Default snackbars
+
+<Example>
+    <Button
+        onClick={() =>
+            openSnackBar({
+                content:
+                    'Single line of text directly related to the operation performed'
+            })
+        }
+    >
+        SnackBar
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { openSnackBar } from 'material-cell/source/SnackBar';
+import { Button } from 'material-cell/source/Button';
+
+render(
+    <Button
+        onClick={() =>
+            openSnackBar({
+                content:
+                    'Single line of text directly related to the operation performed'
+            })
+        }
+    >
+        SnackBar
+    </Button>
+);
+```
+
+<Example>
+    <Button
+        onClick={() =>
+            openSnackBar({
+                actionText: 'Action',
+                content:
+                    'Single line of text directly related to the operation performed'
+            })
+        }
+    >
+        SnackBar with action
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { openSnackBar } from 'material-cell/source/SnackBar';
+import { Button } from 'material-cell/source/Button';
+
+render(
+    <Button
+        onClick={() =>
+            openSnackBar({
+                actionText: 'Action',
+                content:
+                    'Single line of text directly related to the operation performed'
+            })
+        }
+    >
+        SnackBar with action
+    </Button>
+);
+```
+
+### Multi-line snackbars
+
+<Example>
+    <Button
+        onClick={() =>
+            openSnackBar({
+                lines: true,
+                content:
+                    'When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon'
+            })
+        }
+    >
+        Multi-line snackbar
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { openSnackBar } from 'material-cell/source/SnackBar';
+import { Button } from 'material-cell/source/Button';
+
+render(
+    <Button
+        onClick={() =>
+            openSnackBar({
+                lines: true,
+                content:
+                    'When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon'
+            })
+        }
+    >
+        Multi-line snackbar
+    </Button>
+);
+```
+
+<Example>
+    <Button
+        onClick={() =>
+            openSnackBar({
+                actionText: 'Action',
+                lines: true,
+                content:
+                    'When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon'
+            })
+        }
+    >
+        Multi-line with action
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { openSnackBar } from 'material-cell/source/SnackBar';
+import { Button } from 'material-cell/source/Button';
+
+render(
+    <Button
+        onClick={() =>
+            openSnackBar({
+                actionText: 'Action',
+                lines: true,
+                content:
+                    'When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon'
+            })
+        }
+    >
+        Multi-line with action
+    </Button>
+);
+```
+
+### Placement
+
+Although all snackbars will span across the bottom of the screen on mobile devices,
+they can be left or right aligned on desktop/tablet devices.
+
+<Example>
+    <Button
+        onClick={() =>
+            openSnackBar({
+                align: 'left',
+                content:
+                    'Single line of text directly related to the operation performed'
+            })
+        }
+    >
+        Left-aligned snackbar
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { openSnackBar } from 'material-cell/source/SnackBar';
+import { Button } from 'material-cell/source/Button';
+
+render(
+    <Button
+        onClick={() =>
+            openSnackBar({
+                align: 'left',
+                content:
+                    'Single line of text directly related to the operation performed'
+            })
+        }
+    >
+        Left-aligned snackbar
+    </Button>
+);
+```
+
+<Example>
+    <Button
+        onClick={() =>
+            openSnackBar({
+                align: 'right',
+                content:
+                    'Single line of text directly related to the operation performed'
+            })
+        }
+    >
+        Right-aligned snackbar
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { openSnackBar } from 'material-cell/source/SnackBar';
+import { Button } from 'material-cell/source/Button';
+
+render(
+    <Button
+        onClick={() =>
+            openSnackBar({
+                align: 'right',
+                content:
+                    'Single line of text directly related to the operation performed'
+            })
+        }
+    >
+        Right-aligned snackbar
+    </Button>
+);
+```
