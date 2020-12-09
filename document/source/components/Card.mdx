@@ -1,0 +1,118 @@
+---
+title: Card
+icon: credit_card
+description: A card is a sheet of material that serves as an entry point to more detailed information.
+---
+
+import { Card } from 'boot-cell/source/Content/Card';
+import { CardAction } from 'material-cell/source/Card';
+import { Button } from 'material-cell/source/Button';
+
+import { Example } from '../../../source/component/Example';
+
+Cards may contain a photo, text, and a link about a single subject.
+They may display content containing elements of varying size, such as photos with captions of variable length.
+
+**Most of the details about cards have been covered in Components/Cards documentation.**
+**Please refer to [this page][1] for more details.**
+
+**N.B.** According to Material Design, flat buttons should be used in cards.
+
+## Supplemental actions
+
+The primary action in a card is typically the card itself.
+
+Supplemental actions can vary from card to card in a collection, depending on the content type and expected outcome.
+
+Supplemental actions within the card are explicitly called out using icons, text, and UI controls, typically placed at the bottom of the card.
+
+<Example>
+    <Card
+        style={{ width: '20rem' }}
+        image="https://tech-query.me/medias/featureimages/6.jpg"
+        title="Card title"
+        text="Some quick example text to build on the card title and make up the bulk of the card's content."
+    >
+        <CardAction>
+            <Button outline color="primary">
+                Action
+            </Button>
+            <Button outline color="primary">
+                Action
+            </Button>
+        </CardAction>
+    </Card>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Card } from 'boot-cell/source/Content/Card';
+import { CardAction } from 'material-cell/source/Card';
+import { Button } from 'material-cell/source/Button';
+
+render(
+    <Card
+        style={{ width: '20rem' }}
+        image="https://tech-query.me/medias/featureimages/6.jpg"
+        title="Card title"
+        text="Some quick example text to build on the card title and make up the bulk of the card's content."
+    >
+        <CardAction>
+            <Button outline color="primary">
+                Action
+            </Button>
+            <Button outline color="primary">
+                Action
+            </Button>
+        </CardAction>
+    </Card>
+);
+```
+
+Vertical action sheet is also supported.
+Add `direction="column"` or `direction="column" reverse` to convert a horizontal action sheet to a vertical one.
+
+<Example>
+    <Card
+        style={{ width: '20rem' }}
+        image="https://tech-query.me/medias/featureimages/6.jpg"
+        title="Card title"
+        text="Some quick example text to build on the card title and make up the bulk of the card's content."
+    >
+        <CardAction direction="column">
+            <Button outline color="primary">
+                Action
+            </Button>
+            <Button outline color="primary">
+                Action
+            </Button>
+        </CardAction>
+    </Card>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Card } from 'boot-cell/source/Content/Card';
+import { CardAction } from 'material-cell/source/Card';
+import { Button } from 'material-cell/source/Button';
+
+render(
+    <Card
+        style={{ width: '20rem' }}
+        image="https://tech-query.me/medias/featureimages/6.jpg"
+        title="Card title"
+        text="Some quick example text to build on the card title and make up the bulk of the card's content."
+    >
+        <CardAction direction="column">
+            <Button outline color="primary">
+                Action
+            </Button>
+            <Button outline color="primary">
+                Action
+            </Button>
+        </CardAction>
+    </Card>
+);
+```
+
+[1]: https://bootstrap.web-cell.dev/#components/card

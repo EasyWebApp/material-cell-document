@@ -1,0 +1,29 @@
+---
+title: Progress
+icon: replay_5
+description: Documentation and examples for using Bootstrap custom progress bars featuring support for stacked bars, animated backgrounds, and text labels.
+---
+
+import { Progress } from 'material-cell/source/Progress';
+
+import { Example } from '../../../source/component/Example';
+
+## Indeterminate state
+
+When indicators are indeterminate they request that the user wait while something finishes
+when it’s not necessary to indicate how long it will take.
+
+Create an indeterminate linear progress by adding `indeterminate` property.
+
+<Example>
+    <Progress indeterminate />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Progress } from 'material-cell/source/Progress';
+
+render(
+    <Progress indeterminate />
+);
+```

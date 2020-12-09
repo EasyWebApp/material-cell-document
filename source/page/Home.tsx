@@ -1,5 +1,6 @@
 import { createCell } from 'web-cell';
 import { Button } from 'boot-cell/source/Form/Button';
+import { CommandLine } from 'github-web-widget/source/CommandLine';
 
 import { PageFrame } from '../component';
 import routes from '../../document/dist';
@@ -14,6 +15,10 @@ export function HomePage() {
                     Get started
                 </Button>
             }
-        />
+        >
+            <CommandLine>
+                npm install material-cell boot-cell web-cell classnames
+            </CommandLine>
+        </PageFrame>
     );
 }
