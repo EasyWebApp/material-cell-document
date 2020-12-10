@@ -3,10 +3,11 @@
         "target": "ES5",
         "module": "ESNext",
         "moduleResolution": "Node",
+        "downlevelIteration": true,
         "experimentalDecorators": true,
         "jsx": "react",
         "jsxFactory": "createCell",
         "jsxFragmentFactory": "Fragment",
-        "lib": ["ES2020", "DOM"]
+        "lib": ["ES2020", "DOM", "DOM.Iterable"]
     }
 }

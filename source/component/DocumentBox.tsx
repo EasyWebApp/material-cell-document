@@ -1,18 +1,13 @@
-import { createCell, WebCellProps } from 'web-cell';
+import { WebCellProps, createCell } from 'web-cell';
 import { Button } from 'material-cell/source/Button';
 
-import { PageFrame } from './PageFrame';
+import { PageFrameProps, PageFrame } from './PageFrame';
+import { NavArticle } from './NavArticle';
+import { CodeCopy } from './CodeCopy';
 
-export interface DocumentBoxProps extends WebCellProps {
-    description?: string;
-}
+export type DocumentBoxProps = Omit<PageFrameProps, 'header'>;
 
-export function DocumentBox({
-    title,
-    description,
-    defaultSlot,
-    ...rest
-}: DocumentBoxProps) {
+export function DocumentBox({ title, defaultSlot, ...rest }: DocumentBoxProps) {
     const URI = `https://web-cell.dev/material-cell/interfaces/${title
         .replace(' ', '')
         .toLowerCase()}props.html`;
@@ -21,14 +16,15 @@ export function DocumentBox({
         <PageFrame
             {...rest}
             title={title}
-            description={description}
             header={
                 <Button color="secondary" href={URI}>
                     API
                 </Button>
             }
         >
-            {defaultSlot}
+            <NavArticle>
+                <CodeCopy>{defaultSlot}</CodeCopy>
+            </NavArticle>
         </PageFrame>
     );
 }

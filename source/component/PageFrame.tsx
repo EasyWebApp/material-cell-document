@@ -6,9 +6,9 @@ import {
 } from 'web-cell';
 import { Jumbotron } from 'boot-cell/source/Content/Jumbotron';
 
-interface PageFrameProps extends WebCellProps {
+export interface PageFrameProps extends WebCellProps {
     title: string;
-    description: string;
+    description?: string;
     header?: VNodeChildElement;
 }
 

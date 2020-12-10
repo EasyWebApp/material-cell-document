@@ -57,13 +57,14 @@ render(
 
 <Example>
     <Button
-        onClick={() =>
-            openSnackBar({
+        onClick={async () => {
+            const emitted = await openSnackBar({
                 actionText: 'Action',
                 content:
                     'Single line of text directly related to the operation performed'
-            })
-        }
+            });
+            console.log('Action is emitted: ' + emitted);
+        }}
     >
         SnackBar with action
     </Button>
@@ -76,13 +77,14 @@ import { Button } from 'material-cell/source/Button';
 
 render(
     <Button
-        onClick={() =>
-            openSnackBar({
+        onClick={async () => {
+            const emitted = await openSnackBar({
                 actionText: 'Action',
                 content:
                     'Single line of text directly related to the operation performed'
-            })
-        }
+            });
+            console.log('Action is emitted: ' + emitted);
+        }}
     >
         SnackBar with action
     </Button>
@@ -95,7 +97,7 @@ render(
     <Button
         onClick={() =>
             openSnackBar({
-                lines: true,
+                multiple: true,
                 content:
                     'When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon'
             })
@@ -114,7 +116,7 @@ render(
     <Button
         onClick={() =>
             openSnackBar({
-                lines: true,
+                multiple: true,
                 content:
                     'When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon'
             })
@@ -127,14 +129,15 @@ render(
 
 <Example>
     <Button
-        onClick={() =>
-            openSnackBar({
+        onClick={async () => {
+            const emitted = await openSnackBar({
                 actionText: 'Action',
-                lines: true,
+                multiple: true,
                 content:
                     'When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon'
-            })
-        }
+            });
+            console.log('Action is emitted: ' + emitted);
+        }}
     >
         Multi-line with action
     </Button>
@@ -147,14 +150,15 @@ import { Button } from 'material-cell/source/Button';
 
 render(
     <Button
-        onClick={() =>
-            openSnackBar({
+        onClick={async () => {
+            const emitted = await openSnackBar({
                 actionText: 'Action',
-                lines: true,
+                multiple: true,
                 content:
                     'When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon'
-            })
-        }
+            });
+            console.log('Action is emitted: ' + emitted);
+        }}
     >
         Multi-line with action
     </Button>

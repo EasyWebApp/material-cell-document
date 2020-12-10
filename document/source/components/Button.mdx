@@ -80,9 +80,7 @@ They lift and display ink reactions on press.
         'Dark',
         'Light'
     ].map(color => (
-        <Button className="m-1" color={color?.toLowerCase()}>
-            {color || 'Raised'}
-        </Button>
+        <Button color={color?.toLowerCase()}>{color || 'Raised'}</Button>
     ))}
 </Example>
 
@@ -101,9 +99,7 @@ render([
     'Dark',
     'Light'
 ].map(color => (
-    <Button className="m-1" color={color?.toLowerCase()}>
-        {color || 'Raised'}
-    </Button>
+    <Button color={color?.toLowerCase()}>{color || 'Raised'}</Button>
 )));
 ```
 
@@ -142,7 +138,7 @@ render(
         'Dark',
         'Light'
     ].map(color => (
-        <Button className="m-1" float color={color?.toLowerCase()}>
+        <Button float color={color?.toLowerCase()}>
             <Icon name="add" />
         </Button>
     ))}
@@ -163,7 +159,7 @@ render([
     'Dark',
     'Light'
 ].map(color => (
-    <Button className="m-1" float color={color?.toLowerCase()}>
+    <Button float color={color?.toLowerCase()}>
         <Icon name="add" />
     </Button>
 )));
