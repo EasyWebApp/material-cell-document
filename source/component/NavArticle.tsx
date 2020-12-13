@@ -29,7 +29,7 @@ export class NavArticle extends mixin<WebCellProps, NavArticleState>() {
     state = { headerList: [] };
 
     connectedCallback() {
-        this.classList.add('row', style.box);
+        this.classList.add('row', 'm-0', style.box);
 
         self.addEventListener('resize', this.updateHeaderNav);
 
@@ -49,11 +49,11 @@ export class NavArticle extends mixin<WebCellProps, NavArticleState>() {
             article as HTMLElement,
             ({ links: [item] }) => {
                 for (const link of item?.parentElement.querySelectorAll(
-                    'a.active'
+                    `a.${style.active}`
                 ) || [])
-                    link.classList.remove('active');
+                    link.classList.remove(style.active);
 
-                item?.classList.add('active');
+                item?.classList.add(style.active);
             },
             4
         );

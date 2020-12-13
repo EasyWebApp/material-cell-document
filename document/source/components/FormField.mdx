@@ -4,10 +4,361 @@ icon: edit
 description: Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms.
 ---
 
+import { FormField } from 'material-cell/source/FormField';
 import { ToggleField } from 'material-cell/source/ToggleField';
 import { Form } from 'boot-cell/source/Form/Form';
 
 import { Example } from '../../../source/component/Example';
+
+## Floating label text fields
+
+When the user engages with the text input field, the floating inline labels move to float above the field.
+
+<Example>
+    <FormField
+        labelFloat
+        placeholder="Floating label"
+        tips="Help text placed inside Floating label."
+    />
+    <FormField
+        type="datetime-local"
+        required
+        labelFloat
+        label="Date and time"
+    />
+    <FormField is="select" required labelFloat label="Select field box">
+        <option value="" />
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </FormField>
+    <FormField is="textarea" labelFloat placeholder="1 row textarea" rows={1} />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { FormField } from 'material-cell/source/FormField';
+
+render(
+    <>
+        <FormField
+            labelFloat
+            placeholder="Floating label"
+            tips="Help text placed inside Floating label."
+        />
+        <FormField
+            type="datetime-local"
+            required
+            labelFloat
+            label="Date and time"
+        />
+        <FormField is="select" required labelFloat label="Select field box">
+            <option value="" />
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </FormField>
+        <FormField is="textarea" labelFloat placeholder="1 row textarea" rows={1} />
+    </>
+);
+```
+
+### Sizes
+
+Change sizes using `size="lg"` and `size="sm"`.
+
+<Example>
+    <FormField
+        size="lg"
+        labelFloat
+        placeholder="Large"
+        tips="Help text placed inside Floating label."
+    />
+    <FormField labelFloat placeholder="Default" />
+    <FormField
+        size="sm"
+        labelFloat
+        placeholder="Small"
+        tips="Help text placed inside Floating label."
+    />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { FormField } from 'material-cell/source/FormField';
+
+render(
+    <>
+        <FormField
+            size="lg"
+            labelFloat
+            placeholder="Large"
+            tips="Help text placed inside Floating label."
+        />
+        <FormField labelFloat placeholder="Default" />
+        <FormField
+            size="sm"
+            labelFloat
+            placeholder="Small"
+            tips="Help text placed inside Floating label."
+        />
+    </>
+);
+```
+
+## Text field boxes
+
+Text field boxes increase text field identifiability and scannability by using a transparent rectangular fill to enclose the label and input text.
+
+<Example>
+    <FormField
+        boxMode
+        label="Text field box"
+        placeholder="Placeholder"
+        tips="Help text placed inside Text Field box."
+    />
+    <FormField is="select" boxMode label="Select field box">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </FormField>
+    <FormField is="select" multiple boxMode label="Multiple select">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </FormField>
+    <FormField is="select" size={3} boxMode label="Size select">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </FormField>
+    <FormField is="select" size={1} boxMode label="Size=1 select">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </FormField>
+    <FormField
+        is="textarea"
+        rows={3}
+        boxMode
+        label="Textarea"
+        placeholder="Textarea"
+    />
+    <FormField
+        is="textarea"
+        rows={1}
+        boxMode
+        label="1 row textarea"
+        placeholder="1 row textarea"
+    />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { FormField } from 'material-cell/source/FormField';
+
+render(
+    <>
+        <FormField
+            boxMode
+            label="Text field box"
+            placeholder="Placeholder"
+            tips="Help text placed inside Text Field box."
+        />
+        <FormField is="select" boxMode label="Select field box">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </FormField>
+        <FormField is="select" multiple boxMode label="Multiple select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </FormField>
+        <FormField is="select" size={3} boxMode label="Size select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </FormField>
+        <FormField is="select" size={1} boxMode label="Size=1 select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </FormField>
+        <FormField
+            is="textarea"
+            rows={3}
+            boxMode
+            label="Textarea"
+            placeholder="Textarea"
+        />
+        <FormField
+            is="textarea"
+            rows={1}
+            boxMode
+            label="1 row textarea"
+            placeholder="1 row textarea"
+        />
+    </>
+);
+```
+
+### Sizes
+
+Change sizes using `size="lg"` and `size="sm"`.
+
+<Example>
+    <FormField
+        boxMode
+        size="lg"
+        label="Large"
+        placeholder="Large"
+        tips="Help text placed inside Text Field box."
+    />
+    <FormField boxMode label="Default" placeholder="Default" />
+    <FormField
+        boxMode
+        size="sm"
+        label="Small"
+        placeholder="Small"
+        tips="Help text placed inside Text Field box."
+    />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { FormField } from 'material-cell/source/FormField';
+
+render(
+    <>
+        <FormField
+            boxMode
+            size="lg"
+            label="Large"
+            placeholder="Large"
+            tips="Help text placed inside Text Field box."
+        />
+        <FormField boxMode label="Default" placeholder="Default" />
+        <FormField
+            boxMode
+            size="sm"
+            label="Small"
+            placeholder="Small"
+            tips="Help text placed inside Text Field box."
+        />
+    </>
+);
+```
+
+### With floating labels
+
+Text field boxes can be combined with floating labels.
+
+<Example>
+    <FormField boxMode labelFloat placeholder="Floating label" />
+    <FormField is="select" required boxMode labelFloat label="Floating label">
+        <option value="" />
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </FormField>
+    <FormField
+        is="textarea"
+        rows={3}
+        boxMode
+        labelFloat
+        placeholder="Textarea"
+    />
+    <FormField
+        is="textarea"
+        rows={1}
+        boxMode
+        labelFloat
+        placeholder="1 row textarea"
+    />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { FormField } from 'material-cell/source/FormField';
+
+render(
+    <>
+        <FormField boxMode labelFloat placeholder="Floating label" />
+        <FormField
+            is="select"
+            required
+            boxMode
+            labelFloat
+            label="Floating label"
+        >
+            <option value="" />
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </FormField>
+        <FormField
+            is="textarea"
+            rows={3}
+            boxMode
+            labelFloat
+            placeholder="Textarea"
+        />
+        <FormField
+            is="textarea"
+            rows={1}
+            boxMode
+            labelFloat
+            placeholder="1 row textarea"
+        />
+    </>
+);
+```
+
+Sizes can also be set by adding `size="lg"` and `size="sm"` properties.
+
+<Example>
+    <FormField
+        boxMode
+        size="lg"
+        labelFloat
+        placeholder="Large"
+        tips="Help text placed inside Text Field box."
+    />
+    <FormField boxMode labelFloat placeholder="Default" />
+    <FormField
+        boxMode
+        size="sm"
+        labelFloat
+        placeholder="Small"
+        tips="Help text placed inside Text Field box."
+    />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { FormField } from 'material-cell/source/FormField';
+
+render(
+    <>
+        <FormField
+            boxMode
+            size="lg"
+            labelFloat
+            placeholder="Large"
+            tips="Help text placed inside Text Field box."
+        />
+        <FormField boxMode labelFloat placeholder="Default" />
+        <FormField
+            boxMode
+            size="sm"
+            labelFloat
+            placeholder="Small"
+            tips="Help text placed inside Text Field box."
+        />
+    </>
+);
+```
 
 ## Switches
 
