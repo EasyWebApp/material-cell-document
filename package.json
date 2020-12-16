@@ -1,6 +1,6 @@
 {
     "name": "material-cell-document",
-    "version": "0.11.0",
+    "version": "0.12.0",
     "license": "AGPL-3.0",
     "author": "shiy2008@gmail.com",
     "homepage": "https://material.web-cell.dev/",
@@ -17,14 +17,14 @@
         "cell-router": "^2.0.2",
         "classnames": "^2.2.6",
         "github-web-widget": "^3.0.0-beta.7",
-        "material-cell": "^2.0.0-beta.5",
+        "material-cell": "^2.0.0-beta.6",
         "web-cell": "^2.2.0",
         "web-utility": "^2.1.0"
     },
     "devDependencies": {
         "@types/classnames": "^2.2.11",
         "autoprefixer": "^9.8.6",
-        "husky": "^4.3.5",
+        "husky": "^4.3.6",
         "less": "^3.13.0",
         "lint-staged": "^10.5.3",
         "mark-cell": "^0.4.5",

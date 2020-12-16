@@ -5,6 +5,9 @@ description: Examples and usage guidelines for form control styles, layout optio
 ---
 
 import { FormField } from 'material-cell/source/FormField';
+import { InputGroup } from 'material-cell/source/InputGroup';
+import { Icon } from 'material-cell/source/Icon';
+import { Field } from 'boot-cell/source/Form/Field';
 import { ToggleField } from 'material-cell/source/ToggleField';
 import { Form } from 'boot-cell/source/Form/Form';
 
@@ -356,6 +359,152 @@ render(
             placeholder="Small"
             tips="Help text placed inside Text Field box."
         />
+    </>
+);
+```
+
+## With icons
+
+Icons describe the type of input a text field requires. They are displayed to the left of the text field.
+
+<Example>
+    <InputGroup size="lg">
+        <Icon name="event" />
+        <Field
+            placeholder="Large"
+            aria-label="Large icon signifier example input"
+        />
+    </InputGroup>
+    <InputGroup>
+        <Icon name="event" />
+        <Field
+            placeholder="Default"
+            aria-label="Default icon signifier example input"
+        />
+    </InputGroup>
+    <InputGroup size="sm">
+        <Icon name="event" />
+        <Field
+            placeholder="Small"
+            aria-label="Small icon signifier example input"
+        />
+    </InputGroup>
+    <InputGroup>
+        <Icon name="event" />
+        <Field
+            is="select"
+            multiple
+            aria-label="Icon signifier with multiple select example"
+        >
+            <option>With multiple select</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </Field>
+    </InputGroup>
+    <InputGroup>
+        <Icon name="event" />
+        <Field
+            is="textarea"
+            rows="3"
+            placeholder="With textarea"
+            aria-label="Icon signifier with textarea example"
+        />
+    </InputGroup>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Icon } from 'material-cell/source/Icon';
+import { Field } from 'boot-cell/source/Form/Field';
+
+render(
+    <>
+        <InputGroup size="lg">
+            <Icon name="event" />
+            <Field
+                placeholder="Large"
+                aria-label="Large icon signifier example input"
+            />
+        </InputGroup>
+        <InputGroup>
+            <Icon name="event" />
+            <Field
+                placeholder="Default"
+                aria-label="Default icon signifier example input"
+            />
+        </InputGroup>
+        <InputGroup size="sm">
+            <Icon name="event" />
+            <Field
+                placeholder="Small"
+                aria-label="Small icon signifier example input"
+            />
+        </InputGroup>
+        <InputGroup>
+            <Icon name="event" />
+            <Field
+                is="select"
+                multiple
+                aria-label="Icon signifier with multiple select example"
+            >
+                <option>With multiple select</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </Field>
+        </InputGroup>
+        <InputGroup>
+            <Icon name="event" />
+            <Field
+                is="textarea"
+                rows="3"
+                placeholder="With textarea"
+                aria-label="Icon signifier with textarea example"
+            />
+        </InputGroup>
+    </>
+);
+```
+
+`<InputGroup />` & `<Icon />` can also work with floating label text fields and text field boxes:
+
+<Example>
+    <InputGroup size="lg">
+        <Icon name="event" />
+        <FormField labelFloat placeholder="Large" />
+    </InputGroup>
+    <InputGroup>
+        <Icon name="event" />
+        <FormField labelFloat placeholder="Default" />
+    </InputGroup>
+    <InputGroup size="sm">
+        <Icon name="event" />
+        <FormField labelFloat placeholder="Small" />
+    </InputGroup>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Icon } from 'material-cell/source/Icon';
+import { FormField } from 'boot-cell/source/Form/FormField';
+
+render(
+    <>
+        <InputGroup size="lg">
+            <Icon name="event" />
+            <FormField labelFloat placeholder="Large" />
+        </InputGroup>
+        <InputGroup>
+            <Icon name="event" />
+            <FormField labelFloat placeholder="Default" />
+        </InputGroup>
+        <InputGroup size="sm">
+            <Icon name="event" />
+            <FormField labelFloat placeholder="Small" />
+        </InputGroup>
     </>
 );
 ```
