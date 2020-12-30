@@ -4,14 +4,14 @@ icon: edit
 description: Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms.
 ---
 
-import { FormField } from 'material-cell/source/FormField';
-import { InputGroup } from 'material-cell/source/InputGroup';
-import { Icon } from 'material-cell/source/Icon';
+import { FormField } from 'material-cell/source/Form/FormField';
+import { InputGroup } from 'material-cell/source/Form/InputGroup';
+import { Icon } from 'material-cell/source/Reminder/Icon';
 import { Field } from 'boot-cell/source/Form/Field';
-import { ToggleField } from 'material-cell/source/ToggleField';
+import { ToggleField } from 'material-cell/source/Form/ToggleField';
 import { Form } from 'boot-cell/source/Form/Form';
 
-import { Example } from '../../../source/component/Example';
+import { Example } from '../../../../source/component/Example';
 
 ## Floating label text fields
 
@@ -40,7 +40,7 @@ When the user engages with the text input field, the floating inline labels move
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
-import { FormField } from 'material-cell/source/FormField';
+import { FormField } from 'material-cell/source/Form/FormField';
 
 render(
     <>
@@ -88,7 +88,7 @@ Change sizes using `size="lg"` and `size="sm"`.
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
-import { FormField } from 'material-cell/source/FormField';
+import { FormField } from 'material-cell/source/Form/FormField';
 
 render(
     <>
@@ -158,7 +158,7 @@ Text field boxes increase text field identifiability and scannability by using a
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
-import { FormField } from 'material-cell/source/FormField';
+import { FormField } from 'material-cell/source/Form/FormField';
 
 render(
     <>
@@ -230,7 +230,7 @@ Change sizes using `size="lg"` and `size="sm"`.
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
-import { FormField } from 'material-cell/source/FormField';
+import { FormField } from 'material-cell/source/Form/FormField';
 
 render(
     <>
@@ -283,7 +283,7 @@ Text field boxes can be combined with floating labels.
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
-import { FormField } from 'material-cell/source/FormField';
+import { FormField } from 'material-cell/source/Form/FormField';
 
 render(
     <>
@@ -340,7 +340,7 @@ Sizes can also be set by adding `size="lg"` and `size="sm"` properties.
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
-import { FormField } from 'material-cell/source/FormField';
+import { FormField } from 'material-cell/source/Form/FormField';
 
 render(
     <>
@@ -415,8 +415,8 @@ Icons describe the type of input a text field requires. They are displayed to th
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
-import { InputGroup } from 'boot-cell/source/Form/InputGroup';
-import { Icon } from 'material-cell/source/Icon';
+import { InputGroup } from 'material-cell/source/Form/InputGroup';
+import { Icon } from 'material-cell/source/Reminder/Icon';
 import { Field } from 'boot-cell/source/Form/Field';
 
 render(
@@ -487,8 +487,8 @@ render(
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
-import { InputGroup } from 'boot-cell/source/Form/InputGroup';
-import { Icon } from 'material-cell/source/Icon';
+import { InputGroup } from 'material-cell/source/Form/InputGroup';
+import { Icon } from 'material-cell/source/Reminder/Icon';
 import { FormField } from 'boot-cell/source/Form/FormField';
 
 render(
@@ -522,7 +522,7 @@ as well as the state it’s in, should be made clear from the corresponding inli
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { ToggleField } from 'material-cell/source/ToggleField';
+import { ToggleField } from 'material-cell/source/Form/ToggleField';
 
 render(
     <ToggleField type="checkbox" switch>
@@ -553,7 +553,7 @@ For details about how validation works, please check [this page][1]. The followi
 ```TSX
 import { render, createCell } from 'web-cell';
 import { Form } from 'boot-cell/source/Form/Form';
-import { ToggleField } from 'material-cell/source/ToggleField';
+import { ToggleField } from 'material-cell/source/Form/ToggleField';
 
 render(
     <Form validated>
@@ -571,4 +571,4 @@ render(
 );
 ```
 
-[1]: https://bootstrap.web-cell.dev/#components/formfield
+[1]: https://bootstrap.web-cell.dev/#components/form/formfield

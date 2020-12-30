@@ -1,0 +1,315 @@
+---
+title: Drawer NavBar
+icon: menu
+description: The navigation drawer contains the navigation destinations for your app or site.
+---
+
+import { Embed } from 'boot-cell/source/Media/Embed';
+
+import { Example } from '../../../../source/component/Example';
+
+A working example of a navigation drawer is the left panel on this page. If you are on a desktop,
+the navigation drawer should be visible at all times on the left hand side of the browser window.
+If you are on a mobile or tablet, you may need to toggle open the navigation drawer by
+tapping on the hamburger icon near the top of this page.
+
+## Content
+
+Material provides some basic styles for a set of components that are normally used in
+a navigation drawer such as headings and navs.
+
+<Example>
+    <Embed
+        is="iframe"
+        style={{ height: '90vh' }}
+        src="test/DrawerNav/?brand=Navdrawer&amp;header=Navdrawer%20header"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DrawerNavBar } from 'material-cell/source/Navigator/DrawerNavBar';
+import {
+    DrawerMenu,
+    DrawerMenuItem
+} from 'material-cell/source/Navigator/DrawerNav';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <DrawerNavBar brand="Navdrawer" header="Navdrawer header">
+        <NavLink active>Active</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+        <NavLink>Link</NavLink>
+
+        <DrawerMenu title="Navdrawer subheader">
+            <DrawerMenuItem icon="alarm_on" active>
+                Active with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="alarm_off" disabled>
+                Disabled with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="link">Link with icon</DrawerMenuItem>
+        </DrawerMenu>
+    </DrawerNavBar>
+);
+```
+
+## Variations
+
+### Permanent drawer
+
+A permanent navigation drawer is always visible at the same elevation as the content.
+
+<Example>
+    <Embed
+        is="iframe"
+        style={{ height: '90vh' }}
+        src="test/DrawerNav/?permanent=xs&amp;brand=Permanent%20drawer&amp;header=Navdrawer%20header"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DrawerNavBar } from 'material-cell/source/Navigator/DrawerNavBar';
+import {
+    DrawerMenu,
+    DrawerMenuItem
+} from 'material-cell/source/Navigator/DrawerNav';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <DrawerNavBar
+        permanent="xs"
+        brand="Permanent drawer"
+        header="Navdrawer header"
+    >
+        <NavLink active>Active</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+        <NavLink>Link</NavLink>
+
+        <DrawerMenu title="Navdrawer subheader">
+            <DrawerMenuItem icon="alarm_on" active>
+                Active with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="alarm_off" disabled>
+                Disabled with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="link">Link with icon</DrawerMenuItem>
+        </DrawerMenu>
+    </DrawerNavBar>
+);
+```
+
+You can also add additional breakpoint parameters (i.e. `sm`, `md`, `lg` and `xl`)
+to a navigation drawer so that the permanent styles only kick in when the screen reaches a certain breakpoint.
+
+### Clipped permanent drawer
+
+A permanent navigation drawer has a few variations of its own, too.
+It can be clipped under the top navigation bar (`<NavBar />`):
+
+<Example>
+    <Embed
+        is="iframe"
+        style={{ height: '90vh' }}
+        src="test/DrawerNav/?permanent=xs&amp;clipped=true&amp;brand=Clipped%20permanent%20drawer"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DrawerNavBar } from 'material-cell/source/Navigator/DrawerNavBar';
+import {
+    DrawerMenu,
+    DrawerMenuItem
+} from 'material-cell/source/Navigator/DrawerNav';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <DrawerNavBar permanent="xs" clipped brand="Clipped permanent drawer">
+        <NavLink active>Active</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+        <NavLink>Link</NavLink>
+
+        <DrawerMenu title="Navdrawer subheader">
+            <DrawerMenuItem icon="alarm_on" active>
+                Active with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="alarm_off" disabled>
+                Disabled with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="link">Link with icon</DrawerMenuItem>
+        </DrawerMenu>
+    </DrawerNavBar>
+);
+```
+
+### Float permanent drawer
+
+For pages that require less hierarchy, a floating permanent drawer may be the best fit:
+
+<Example>
+    <Embed
+        is="iframe"
+        style={{ height: '90vh' }}
+        src="test/DrawerNav/?permanent=xs&amp;float=transparent&amp;brand=Float%20permanent%20drawer"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DrawerNavBar } from 'material-cell/source/Navigator/DrawerNavBar';
+import {
+    DrawerMenu,
+    DrawerMenuItem
+} from 'material-cell/source/Navigator/DrawerNav';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <DrawerNavBar
+        permanent="xs"
+        float="transparent"
+        brand="Float permanent drawer"
+    >
+        <NavLink active>Active</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+        <NavLink>Link</NavLink>
+
+        <DrawerMenu title="Navdrawer subheader">
+            <DrawerMenuItem icon="alarm_on" active>
+                Active with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="alarm_off" disabled>
+                Disabled with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="link">Link with icon</DrawerMenuItem>
+        </DrawerMenu>
+    </DrawerNavBar>
+);
+```
+
+A floating permanent drawer can also work with other components, such as `<Card />`:
+
+<Example>
+    <Embed
+        is="iframe"
+        style={{ height: '90vh' }}
+        src="test/DrawerNav/?permanent=xs&amp;float=card&amp;brand=Float%20permanent%20drawer"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DrawerNavBar } from 'material-cell/source/Navigator/DrawerNavBar';
+import {
+    DrawerMenu,
+    DrawerMenuItem
+} from 'material-cell/source/Navigator/DrawerNav';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <DrawerNavBar permanent="xs" float="card" brand="Float permanent drawer">
+        <NavLink active>Active</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+        <NavLink>Link</NavLink>
+
+        <DrawerMenu title="Navdrawer subheader">
+            <DrawerMenuItem icon="alarm_on" active>
+                Active with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="alarm_off" disabled>
+                Disabled with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="link">Link with icon</DrawerMenuItem>
+        </DrawerMenu>
+    </DrawerNavBar>
+);
+```
+
+### Persistent drawer
+
+A persistent navigation drawer can be closed and opened, but unlike a default drawer,
+a persistent drawer sits on the same surface elevation as the content so it does not generate a backdrop.
+
+<Example>
+    <Embed
+        is="iframe"
+        style={{ height: '90vh' }}
+        src="test/DrawerNav/?persistent=xs&amp;brand=Persistent%20drawer"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DrawerNavBar } from 'material-cell/source/Navigator/DrawerNavBar';
+import {
+    DrawerMenu,
+    DrawerMenuItem
+} from 'material-cell/source/Navigator/DrawerNav';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <DrawerNavBar persistent="xs" brand="Persistent drawer">
+        <NavLink active>Active</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+        <NavLink>Link</NavLink>
+
+        <DrawerMenu title="Navdrawer subheader">
+            <DrawerMenuItem icon="alarm_on" active>
+                Active with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="alarm_off" disabled>
+                Disabled with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="link">Link with icon</DrawerMenuItem>
+        </DrawerMenu>
+    </DrawerNavBar>
+);
+```
+
+You can also add additional breakpoint parameters (i.e. `sm`, `md`, `lg` and `xl`)
+to a navigation drawer so that the persistent styles only kick in when the screen reaches a certain breakpoint.
+
+### Temporary drawer
+
+A temporary navigation drawer can be closed and opened and sits above all other content,
+but unlike a default drawer, a temporary drawer does not generate a backdrop so it can remain open while you perform other actions on the page.
+
+<Example>
+    <Embed
+        is="iframe"
+        style={{ height: '90vh' }}
+        src="test/DrawerNav/?temporary=xs&amp;brand=Temporary%20drawer"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DrawerNavBar } from 'material-cell/source/Navigator/DrawerNavBar';
+import {
+    DrawerMenu,
+    DrawerMenuItem
+} from 'material-cell/source/Navigator/DrawerNav';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <DrawerNavBar temporary="xs" brand="Temporary drawer">
+        <NavLink active>Active</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+        <NavLink>Link</NavLink>
+
+        <DrawerMenu title="Navdrawer subheader">
+            <DrawerMenuItem icon="alarm_on" active>
+                Active with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="alarm_off" disabled>
+                Disabled with icon
+            </DrawerMenuItem>
+            <DrawerMenuItem icon="link">Link with icon</DrawerMenuItem>
+        </DrawerMenu>
+    </DrawerNavBar>
+);
+```
+
+You can also add additional breakpoint parameters (i.e. `sm`, `md`, `lg` and `xl`)
+to a navigation drawer so that the temporary styles only kick in when the screen reaches a certain breakpoint.

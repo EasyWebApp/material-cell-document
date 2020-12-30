@@ -4,10 +4,10 @@ icon: filter_center_focus
 description: Buttons communicate the action that will occur when the user touches them.
 ---
 
-import { Button } from 'material-cell/source/Button';
-import { Icon } from 'material-cell/source/Icon';
+import { Button } from 'material-cell/source/Form/Button';
+import { Icon } from 'material-cell/source/Reminder/Icon';
 
-import { Example } from '../../../source/component/Example';
+import { Example } from '../../../../source/component/Example';
 
 Flat buttons and raised buttons are the most commonly used types.
 
@@ -41,7 +41,7 @@ They do not lift, but fill with color on press.
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Button } from 'material-cell/source/Button';
+import { Button } from 'material-cell/source/Form/Button';
 
 render([
     undefined,
@@ -86,7 +86,7 @@ They lift and display ink reactions on press.
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Button } from 'material-cell/source/Button';
+import { Button } from 'material-cell/source/Form/Button';
 
 render([
     undefined,
@@ -115,8 +115,8 @@ A floating action button represents the primary action in an application, it is 
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Button } from 'material-cell/source/Button';
-import { Icon } from 'material-cell/source/Icon';
+import { Button } from 'material-cell/source/Form/Button';
+import { Icon } from 'material-cell/source/Reminder/Icon';
 
 render(
     <Button float>
@@ -146,8 +146,8 @@ render(
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Button } from 'material-cell/source/Button';
-import { Icon } from 'material-cell/source/Icon';
+import { Button } from 'material-cell/source/Form/Button';
+import { Icon } from 'material-cell/source/Reminder/Icon';
 
 render([
     'Primary',
@@ -177,8 +177,8 @@ A smaller sized, i.e. mini floating action button, is also available.
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Button } from 'material-cell/source/Button';
-import { Icon } from 'material-cell/source/Icon';
+import { Button } from 'material-cell/source/Form/Button';
+import { Icon } from 'material-cell/source/Reminder/Icon';
 
 render(
     <Button float size="sm">
@@ -187,4 +187,4 @@ render(
 );
 ```
 
-[1]: https://bootstrap.web-cell.dev/#components/button
+[1]: https://bootstrap.web-cell.dev/#components/form/button
