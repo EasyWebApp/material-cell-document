@@ -67,7 +67,7 @@
         "pack-mdx": "mark-cell document/source -p web-cell -f createCell",
         "pack-tsx": "parcel build source/index.html --public-url .",
         "pack-test": "cd document/test/DrawerNav/  &&  parcel build index.html --public-url . -d ../../../dist/test/DrawerNav/",
-        "build": "rm -rf dist/ document/dist/  &&  npm run pack-mdx  &&  npm run pack-tsx  &&  npm run pack-test  &&  workbox generateSW",
+        "build": "rm -rf dist/ document/dist/  &&  npm run pack-mdx  &&  npm run pack-tsx  &&  workbox generateSW",
         "start": "npm run pack-mdx  &&  parcel source/index.html --open"
     },
     "husky": {
