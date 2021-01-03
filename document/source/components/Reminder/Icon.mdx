@@ -1,58 +1,138 @@
 ---
 title: Icon
 icon: font_download
-description: Material takes advantage of the over 900 icons offered by the official icon set from Google.
+description: Icon displays an icon with a chosen name from the Material Icons font, or from any font that supports ligatures.
 ---
 
-import { Icon } from 'material-cell/source/Reminder/Icon';
+import '@material/mwc-icon';
 
 import { Example } from '../../../../source/component/Example';
 
-## Quick start
+[Material Design Guidelines: System icons][1]
 
-The easiest way to set up icon fonts for use in any web page is through [Google Web Fonts][1]. All you need to do is include a single line of HTML:
+## Font CSS CDN
+
+### Internet
 
 ```HTML
 <link
     rel="stylesheet"
-    href="https://fonts.googleapis.com/icon?family=Material+Icons"
-/>
+    href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+>
 ```
 
-Then, it’s easy to incorporate icons into your web page. Here’s a small example:
+### Behind _Great Fire Wall_ made by _China Communist Party_
+
+```HTML
+<link
+    rel="stylesheet"
+    href="https://fonts.loli.net/css?family=Material+Icons&display=block"
+>
+```
+
+## Example usage
+
+### Basic
 
 <Example>
-    <Icon name="face" />
+    <mwc-icon>shopping_cart</mwc-icon>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Icon } from 'material-cell/source/Reminder/Icon';
+import type {} from 'material-cell';
+import '@material/mwc-icon';
+
+render(<mwc-icon>code</mwc-icon>);
+```
+
+### As a link
+
+<Example>
+    <a href="index.html">
+        <mwc-icon>arrow_back</mwc-icon>
+    </a>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-icon';
 
 render(
-    <Icon name="face" />
+    <a href="index.html">
+        <mwc-icon>arrow_back</mwc-icon>
+    </a>
 );
 ```
 
-This example uses a typographic feature called [ligatures][2], which allows rendering of an icon glyph simply by using its textual name. The replacement is done automatically by the web browser and provides more readable code than the equivalent numeric character reference. This feature is supported in most modern browsers on both desktop and mobile devices.
-
-For browsers that do not support ligatures, fall back to specifying the icons using numeric character references like the example below:
+### Styled
 
 <Example>
-    <Icon name="&#xE87C;" />
+    <mwc-icon style={{ color: '#03a9f4', '--mdc-icon-size': '64px' }}>
+        accessible_forward
+    </mwc-icon>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Icon } from 'material-cell/source/Reminder/Icon';
+import type {} from 'material-cell';
+import '@material/mwc-icon';
 
 render(
-    <Icon name="&#xE87C;" />
-)
+    <mwc-icon style={{ color: '#03a9f4', '--mdc-icon-size': '64px' }}>
+        accessible_forward
+    </mwc-icon>
+);
 ```
 
-For all available icons, please refer to [Material icons library][3].
+## Fonts
 
-[1]: https://developers.google.com/fonts/
-[2]: http://alistapart.com/article/the-era-of-symbol-fonts
-[3]: https://material.io/icons/
+Most users should include the following in their application HTML when using
+icons:
+
+```HTML
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+/>
+```
+
+This loads the _Material Icons_ font, which is required to render icons, and is
+_not_ loaded automatically. If you see plain text instead of an icon, then the
+most likely cause is that the Material Icons font is not loaded.
+
+To see all icons that are available in the Material Icons font, see [Material Icons][2].
+
+For technical details about the Material Icons font, see the [Material Icons Developer Guide][3].
+
+## API
+
+### Slots
+
+| Name      | Description                                                                                                          |
+| --------- | -------------------------------------------------------------------------------------------------------------------- |
+| _default_ | The name of the icon to display (e.g. `shopping_cart`). See [Material Icons][2] for an index of all available icons. |
+
+### Properties/Attributes
+
+_None_
+
+### Methods
+
+_None_
+
+### Events
+
+_None_
+
+### CSS Custom Properties
+
+| Name              | Default               | Description                                                                                          |
+| ----------------- | --------------------- | ---------------------------------------------------------------------------------------------------- |
+| `--mdc-icon-font` | [`Material Icons`][2] | Font that supports _ligatures_ and determines which icons are available (see [fonts](#fonts) above). |
+| `--mdc-icon-size` | `24px`                | Size of the icon.                                                                                    |
+
+[1]: https://material.io/design/iconography/system-icons.html
+[2]: https://material.io/resources/icons/
+[3]: https://google.github.io/material-design-icons/

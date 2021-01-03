@@ -1,17 +1,18 @@
-import { createCell, Fragment } from 'web-cell';
+import { createCell } from 'web-cell';
 import { History, CellRouter } from 'cell-router/source';
 
-import { DrawerNavBar } from 'material-cell/source/Navigator/DrawerNavBar';
-import {
-    DrawerMenu,
-    DrawerMenuItem
-} from 'material-cell/source/Navigator/DrawerNav';
-import { NavLink } from 'boot-cell/source/Navigator/Nav';
+import type {} from 'material-cell';
+import '@material/mwc-drawer';
+import '@material/mwc-list';
+import '@material/mwc-top-app-bar-fixed';
+import '@material/mwc-icon-button';
+import '@material/mwc-icon';
 
 import { DocumentBox } from '../component/DocumentBox';
+import { Icon } from '../component/Icon';
 import logo from '../image/logo.png';
-import documents from '../../document/dist';
 
+import documents from '../../document/dist';
 import { HomePage } from './Home';
 
 documents.sort(({ meta: { title: A } }, { meta: { title: B } }) =>
@@ -46,33 +47,55 @@ const routes = [
     }))
 ];
 
+document.addEventListener(
+    'MDCTopAppBar:nav',
+    ({ target }: Event) =>
+        ((target as HTMLElement).closest('mwc-drawer').open = true)
+);
+
 export function PageRouter() {
     return (
-        <>
-            <DrawerNavBar
-                permanent="lg"
-                background="transparent"
-                open
-                brand={<img style={{ width: '2.5rem' }} src={logo} />}
-                header="Material Cell"
-            >
-                {topMenu.map(({ title, href }) => (
-                    <NavLink target="_blank" href={href}>
-                        {title}
-                    </NavLink>
+        <mwc-drawer hasHeader type="modal">
+            <span slot="title">Components</span>
+            <mwc-list>
+                {documents.map(({ paths: [href], meta: { title, icon } }) => (
+                    <mwc-list-item graphic="icon">
+                        <mwc-icon slot="graphic">{icon}</mwc-icon>
+                        <a
+                            className="stretched-link"
+                            href={href}
+                            onClick={({ target }) =>
+                                ((target as HTMLElement).closest(
+                                    'mwc-drawer'
+                                ).open = false)
+                            }
+                        >
+                            {title}
+                        </a>
+                    </mwc-list-item>
                 ))}
-                <DrawerMenu title="Components">
-                    {documents.map(
-                        ({ paths: [href], meta: { title, icon } }) => (
-                            <DrawerMenuItem href={href} icon={icon}>
-                                {title}
-                            </DrawerMenuItem>
-                        )
-                    )}
-                </DrawerMenu>
-            </DrawerNavBar>
-
-            <CellRouter {...{ history, routes }} />
-        </>
+            </mwc-list>
+            <mwc-top-app-bar-fixed slot="appContent">
+                <mwc-icon-button icon="menu" slot="navigationIcon" />
+                <Icon
+                    slot="actionItems"
+                    className="align-middle mr-2"
+                    color="white"
+                    title="Source code"
+                    href="https://github.com/EasyWebApp/material-cell"
+                >
+                    code
+                </Icon>
+                <CellRouter
+                    {...{ history, routes }}
+                    onPageRender={({ target }) => {
+                        for (const table of (target as HTMLElement).querySelectorAll(
+                            'article table:not([class])'
+                        ))
+                            table.classList.add('table');
+                    }}
+                />
+            </mwc-top-app-bar-fixed>
+        </mwc-drawer>
     );
 }

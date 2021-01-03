@@ -1,6 +1,6 @@
 {
     "name": "material-cell-document",
-    "version": "0.13.0",
+    "version": "1.0.0-alpha",
     "license": "AGPL-3.0",
     "author": "shiy2008@gmail.com",
     "homepage": "https://material.web-cell.dev/",
@@ -13,13 +13,19 @@
     },
     "main": "source/index.html",
     "dependencies": {
+        "@material/mwc-button": "^0.20.0",
+        "@material/mwc-drawer": "^0.20.0",
+        "@material/mwc-icon": "^0.20.0",
+        "@material/mwc-icon-button": "^0.20.0",
+        "@material/mwc-list": "^0.20.0",
+        "@material/mwc-top-app-bar-fixed": "^0.20.0",
         "boot-cell": "^1.9.1",
         "cell-router": "^2.0.3",
         "classnames": "^2.2.6",
         "github-web-widget": "^3.0.0-beta.8",
-        "material-cell": "^2.0.0-rc.1",
+        "material-cell": "^2.0.0-rc.2",
         "web-cell": "^2.3.0-beta.4",
-        "web-utility": "^2.2.2"
+        "web-utility": "^2.3.0"
     },
     "devDependencies": {
         "@types/classnames": "^2.2.11",
