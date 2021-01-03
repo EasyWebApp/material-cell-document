@@ -1,239 +1,260 @@
 ---
 title: Snack Bar
 icon: info
-description: Snackbars provide brief feedback about an operation through a message at the bottom of the screen.
+description: Snackbars provide brief messages about app processes at the bottom of the screen.
 ---
 
-import { openSnackBar } from 'material-cell/source/SnackBar';
-import { Button } from 'material-cell/source/Form/Button';
+import '@material/mwc-snackbar';
+import '@material/mwc-button';
+import '@material/mwc-icon-button';
 
 import { Example } from '../../../source/component/Example';
+import { Color } from '../../../source/component/Color';
 
-## Behaviour
+[Material Design Guidelines: Snackbars][1]
 
-Since Material only provides styles for snackbars, when coding JavaScript to interact with snackbars for particular projects,
-please be aware of the following Google Material Design guidelines:
+## Example usage
 
--   Only one snackbar may be displayed at a time. When a second snackbar is triggered while the first is displayed, the first should start the contraction motion downwards before the second one animates upwards.
--   Snackbars automatically disappear after a timeout or user interaction elsewhere.
--   Snackbars may contain a single action, neither of which may be “Cancel” or “Dismiss”.
--   When an unrelated dialog or popup occurs while the snackbar is up, the snackbar timeout will reset upon the window focus being regained. This is to ensure that the user will be able to read the snackbar for the full intended duration.
-
-## Examples
-
-### Default snackbars
+### Standard
 
 <Example>
-    <Button
-        onClick={() =>
-            openSnackBar({
-                content:
-                    'Single line of text directly related to the operation performed'
-            })
+    <mwc-button
+        raised
+        onClick={({ target }) =>
+            ((target as HTMLElement)
+                .nextElementSibling as Snackbar).show()
         }
     >
-        SnackBar
-    </Button>
+        Show Snackbar
+    </mwc-button>
+    <mwc-snackbar labelText="Can't send photo. Retry in 5 seconds." />
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { openSnackBar } from 'material-cell/source/SnackBar';
-import { Button } from 'material-cell/source/Form/Button';
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import type { Snackbar } from '@material/mwc-snackbar';
+import '@material/mwc-snackbar';
+import '@material/mwc-button';
 
 render(
-    <Button
-        onClick={() =>
-            openSnackBar({
-                content:
-                    'Single line of text directly related to the operation performed'
-            })
-        }
-    >
-        SnackBar
-    </Button>
+    <>
+        <mwc-button
+            raised
+            onClick={({ target }) =>
+                ((target as HTMLElement)
+                    .nextElementSibling as Snackbar).show()
+            }
+        >
+            Show Snackbar
+        </mwc-button>
+        <mwc-snackbar labelText="Can't send photo. Retry in 5 seconds." />
+    </>
 );
 ```
 
+### Optional action and dismiss button
+
 <Example>
-    <Button
-        onClick={async () => {
-            const emitted = await openSnackBar({
-                actionText: 'Action',
-                content:
-                    'Single line of text directly related to the operation performed'
-            });
-            console.log('Action is emitted: ' + emitted);
-        }}
+    <mwc-button
+        raised
+        onClick={({ target }) =>
+            ((target as HTMLElement)
+                .nextElementSibling as Snackbar).show()
+        }
     >
-        SnackBar with action
-    </Button>
+        Show Snackbar
+    </mwc-button>
+    <mwc-snackbar labelText="Can't send photo. Retry in 5 seconds.">
+        <mwc-button slot="action">RETRY</mwc-button>
+        <mwc-icon-button icon="close" slot="dismiss" />
+    </mwc-snackbar>
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { openSnackBar } from 'material-cell/source/SnackBar';
-import { Button } from 'material-cell/source/Form/Button';
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import type { Snackbar } from '@material/mwc-snackbar';
+import '@material/mwc-snackbar';
+import '@material/mwc-button';
+import '@material/mwc-icon-button';
 
 render(
-    <Button
-        onClick={async () => {
-            const emitted = await openSnackBar({
-                actionText: 'Action',
-                content:
-                    'Single line of text directly related to the operation performed'
-            });
-            console.log('Action is emitted: ' + emitted);
-        }}
-    >
-        SnackBar with action
-    </Button>
+    <>
+        <mwc-button
+            raised
+            onClick={({ target }) =>
+                ((target as HTMLElement)
+                    .nextElementSibling as Snackbar).show()
+            }
+        >
+            Show Snackbar
+        </mwc-button>
+        <mwc-snackbar labelText="Can't send photo. Retry in 5 seconds.">
+            <mwc-button slot="action">RETRY</mwc-button>
+            <mwc-icon-button icon="close" slot="dismiss" />
+        </mwc-snackbar>
+    </>
 );
 ```
 
-### Multi-line snackbars
+### Custom action button color
 
 <Example>
-    <Button
-        onClick={() =>
-            openSnackBar({
-                multiple: true,
-                content:
-                    'When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon'
-            })
+    <mwc-button
+        raised
+        onClick={({ target }) =>
+            ((target as HTMLElement)
+                .nextElementSibling as Snackbar).show()
         }
     >
-        Multi-line snackbar
-    </Button>
+        Show Snackbar
+    </mwc-button>
+    <mwc-snackbar
+        style={{ '--mdc-snackbar-action-color': '#64dc17' }} 
+        labelText="Can't send photo. Retry in 5 seconds."
+    >
+        <mwc-button slot="action">RETRY</mwc-button>
+    </mwc-snackbar>
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { openSnackBar } from 'material-cell/source/SnackBar';
-import { Button } from 'material-cell/source/Form/Button';
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import type { Snackbar } from '@material/mwc-snackbar';
+import '@material/mwc-snackbar';
+import '@material/mwc-button';
 
 render(
-    <Button
-        onClick={() =>
-            openSnackBar({
-                multiple: true,
-                content:
-                    'When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon'
-            })
-        }
-    >
-        Multi-line snackbar
-    </Button>
+    <>
+        <mwc-button
+            raised
+            onClick={({ target }) =>
+                ((target as HTMLElement)
+                    .nextElementSibling as Snackbar).show()
+            }
+        >
+            Show Snackbar
+        </mwc-button>
+        <mwc-snackbar
+            style={{ '--mdc-snackbar-action-color': '#64dc17' }}
+            labelText="Can't send photo. Retry in 5 seconds."
+        >
+            <mwc-button slot="action">RETRY</mwc-button>
+        </mwc-snackbar>
+    </>
 );
 ```
 
+## Variants
+
+### Stacked
+
+Action buttons with long text should be positioned below the label instead of
+alongside it. Set the `stacked` attribute or property to enable this layout.
+
 <Example>
-    <Button
-        onClick={async () => {
-            const emitted = await openSnackBar({
-                actionText: 'Action',
-                multiple: true,
-                content:
-                    'When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon'
-            });
-            console.log('Action is emitted: ' + emitted);
-        }}
+    <mwc-button
+        raised
+        onClick={({ target }) =>
+            ((target as HTMLElement)
+                .nextElementSibling as Snackbar).show()
+        }
     >
-        Multi-line with action
-    </Button>
+        Show Snackbar
+    </mwc-button>
+    <mwc-snackbar stacked labelText="Can't send photo. Retry in 5 seconds.">
+        <mwc-button slot="action">RETRY</mwc-button>
+    </mwc-snackbar>
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { openSnackBar } from 'material-cell/source/SnackBar';
-import { Button } from 'material-cell/source/Form/Button';
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import type { Snackbar } from '@material/mwc-snackbar';
+import '@material/mwc-snackbar';
+import '@material/mwc-button';
 
 render(
-    <Button
-        onClick={async () => {
-            const emitted = await openSnackBar({
-                actionText: 'Action',
-                multiple: true,
-                content:
-                    'When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon'
-            });
-            console.log('Action is emitted: ' + emitted);
-        }}
-    >
-        Multi-line with action
-    </Button>
+    <>
+        <mwc-button
+            raised
+            onClick={({ target }) =>
+                ((target as HTMLElement)
+                    .nextElementSibling as Snackbar).show()
+            }
+        >
+            Show Snackbar
+        </mwc-button>
+        <mwc-snackbar stacked labelText="Can't send photo. Retry in 5 seconds.">
+            <mwc-button slot="action">RETRY</mwc-button>
+        </mwc-snackbar>
+    </>
 );
 ```
 
-### Placement
+### Leading
 
-Although all snackbars will span across the bottom of the screen on mobile devices,
-they can be left or right aligned on desktop/tablet devices.
+By default, snackbars are centered horizontally within the viewport. On larger
+screens, they can optionally be displayed on the leading edge of the screen
+(the left side in LTR, or the right side in RTL). Set the `leading`
+attribute or property to enable this layout.
 
-<Example>
-    <Button
-        onClick={() =>
-            openSnackBar({
-                align: 'left',
-                content:
-                    'Single line of text directly related to the operation performed'
-            })
-        }
-    >
-        Left-aligned snackbar
-    </Button>
-</Example>
+## API
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { openSnackBar } from 'material-cell/source/SnackBar';
-import { Button } from 'material-cell/source/Form/Button';
+### Slots
 
-render(
-    <Button
-        onClick={() =>
-            openSnackBar({
-                align: 'left',
-                content:
-                    'Single line of text directly related to the operation performed'
-            })
-        }
-    >
-        Left-aligned snackbar
-    </Button>
-);
-```
+| Name      | Description                                                                     |
+| --------- | ------------------------------------------------------------------------------- |
+| `action`  | Optional `<mwc-button>` which closes the snackbar with reason `'action'`.       |
+| `dismiss` | Optional `<mwc-icon-button>` which closes the snackbar with reason `'dismiss'`. |
 
-<Example>
-    <Button
-        onClick={() =>
-            openSnackBar({
-                align: 'right',
-                content:
-                    'Single line of text directly related to the operation performed'
-            })
-        }
-    >
-        Right-aligned snackbar
-    </Button>
-</Example>
+### Properties/Attributes
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { openSnackBar } from 'material-cell/source/SnackBar';
-import { Button } from 'material-cell/source/Form/Button';
+| Name            | Type      | Description                                                                                                                                                                                 |
+| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `open`          | `boolean` | Whether the snackbar is currently open.                                                                                                                                                     |
+| `timeoutMs`     | `number`  | Automatic dismiss timeout in milliseconds. Value must be between `4000` and `10000` (or `-1` to disable the timeout completely) or an error will be thrown. Defaults to `5000` (5 seconds). |
+| `closeOnEscape` | `boolean` | Whether the snackbar closes when it is focused and the user presses the ESC key. Defaults to `false`.                                                                                       |
+| `labelText`     | `string`  | The text content of the label element.                                                                                                                                                      |
+| `stacked`       | `boolean` | Enables the _stacked_ layout (see above).                                                                                                                                                   |
+| `leading`       | `boolean` | Enables the _leading_ layout (see above).                                                                                                                                                   |
 
-render(
-    <Button
-        onClick={() =>
-            openSnackBar({
-                align: 'right',
-                content:
-                    'Single line of text directly related to the operation performed'
-            })
-        }
-    >
-        Right-aligned snackbar
-    </Button>
-);
-```
+### Methods
+
+| Name                                 | Description                                                                             |
+| ------------------------------------ | --------------------------------------------------------------------------------------- |
+| `show() => void`                     | Opens the snackbar.                                                                     |
+| `close(reason: string = '') => void` | Closes the snackbar, optionally with the specified reason indicating why it was closed. |
+
+### Events
+
+| Name                  | Detail              | Description                                                                                                                                                                              |
+| --------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `MDCSnackbar:opening` | `{}`                | Indicates when the snackbar begins its opening animation.                                                                                                                                |
+| `MDCSnackbar:opened`  | `{}`                | Indicates when the snackbar finishes its opening animation.                                                                                                                              |
+| `MDCSnackbar:closing` | `{reason?: string}` | Indicates when the snackbar begins its closing animation. `reason` contains the reason why the snackbar closed (`'dismiss'`, `'action'`, or a custom `string` via the `close` method).   |
+| `MDCSnackbar:closed`  | `{reason?: string}` | Indicates when the snackbar finishes its closing animation. `reason` contains the reason why the snackbar closed (`'dismiss'`, `'action'`, or a custom `string` via the `close` method). |
+
+### CSS Custom Properties
+
+| Name                          | Default                | Description                      |
+| ----------------------------- | ---------------------- | -------------------------------- |
+| `--mdc-snackbar-action-color` | <Color>#bb86fc</Color> | Color of the action button text. |
+
+#### Global CSS Custom Properties
+
+This component exposes the following global [theming][2]
+custom properties.
+
+| Name                                | Description                          |
+| ----------------------------------- | ------------------------------------ |
+| `--mdc-typography-body2-<PROPERTY>` | Styles the typography of a snackbar. |
+
+## Additional references
+
+-   [MDC Web Snackbars][3]
+
+[1]: https://material.io/design/components/snackbars.html
+[2]: https://github.com/material-components/material-components-web-components/blob/master/docs/theming.md
+[3]: https://material.io/develop/web/components/snackbars/
