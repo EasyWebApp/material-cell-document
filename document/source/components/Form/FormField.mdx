@@ -1,574 +1,161 @@
 ---
 title: Form Field
 icon: edit
-description: Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms.
+description: A form field is a text caption for MWC input elements including <mwc-checkbox>, <mwc-radio>, and <mwc-switch>.
 ---
 
-import { FormField } from 'material-cell/source/Form/FormField';
-import { InputGroup } from 'material-cell/source/Form/InputGroup';
-import { Icon } from 'material-cell/source/Reminder/Icon';
-import { Field } from 'boot-cell/source/Form/Field';
-import { ToggleField } from 'material-cell/source/Form/ToggleField';
-import { Form } from 'boot-cell/source/Form/Form';
+import '@material/mwc-formfield';
+import '@material/mwc-checkbox';
+import '@material/mwc-radio';
+import '@material/mwc-switch';
 
 import { Example } from '../../../../source/component/Example';
 
-## Floating label text fields
+It is equivalent to the native [`<label>`][1] element in that it forwards user interaction events to the input element.
+For example, tapping on the label causes the associated input element to toggle and focus.
 
-When the user engages with the text input field, the floating inline labels move to float above the field.
+[Material Design Guidelines: Selection controls][2]
 
-<Example>
-    <FormField
-        labelFloat
-        placeholder="Floating label"
-        tips="Help text placed inside Floating label."
-    />
-    <FormField
-        type="datetime-local"
-        required
-        labelFloat
-        label="Date and time"
-    />
-    <FormField is="select" required labelFloat label="Select field box">
-        <option value="" />
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-    </FormField>
-    <FormField is="textarea" labelFloat placeholder="1 row textarea" rows={1} />
-</Example>
+## Example usage
 
-```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { FormField } from 'material-cell/source/Form/FormField';
-
-render(
-    <>
-        <FormField
-            labelFloat
-            placeholder="Floating label"
-            tips="Help text placed inside Floating label."
-        />
-        <FormField
-            type="datetime-local"
-            required
-            labelFloat
-            label="Date and time"
-        />
-        <FormField is="select" required labelFloat label="Select field box">
-            <option value="" />
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </FormField>
-        <FormField is="textarea" labelFloat placeholder="1 row textarea" rows={1} />
-    </>
-);
-```
-
-### Sizes
-
-Change sizes using `size="lg"` and `size="sm"`.
+### With checkbox
 
 <Example>
-    <FormField
-        size="lg"
-        labelFloat
-        placeholder="Large"
-        tips="Help text placed inside Floating label."
-    />
-    <FormField labelFloat placeholder="Default" />
-    <FormField
-        size="sm"
-        labelFloat
-        placeholder="Small"
-        tips="Help text placed inside Floating label."
-    />
-</Example>
-
-```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { FormField } from 'material-cell/source/Form/FormField';
-
-render(
-    <>
-        <FormField
-            size="lg"
-            labelFloat
-            placeholder="Large"
-            tips="Help text placed inside Floating label."
-        />
-        <FormField labelFloat placeholder="Default" />
-        <FormField
-            size="sm"
-            labelFloat
-            placeholder="Small"
-            tips="Help text placed inside Floating label."
-        />
-    </>
-);
-```
-
-## Text field boxes
-
-Text field boxes increase text field identifiability and scannability by using a transparent rectangular fill to enclose the label and input text.
-
-<Example>
-    <FormField
-        boxMode
-        label="Text field box"
-        placeholder="Placeholder"
-        tips="Help text placed inside Text Field box."
-    />
-    <FormField is="select" boxMode label="Select field box">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-    </FormField>
-    <FormField is="select" multiple boxMode label="Multiple select">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-    </FormField>
-    <FormField is="select" size={3} boxMode label="Size select">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-    </FormField>
-    <FormField is="select" size={1} boxMode label="Size=1 select">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-    </FormField>
-    <FormField
-        is="textarea"
-        rows={3}
-        boxMode
-        label="Textarea"
-        placeholder="Textarea"
-    />
-    <FormField
-        is="textarea"
-        rows={1}
-        boxMode
-        label="1 row textarea"
-        placeholder="1 row textarea"
-    />
-</Example>
-
-```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { FormField } from 'material-cell/source/Form/FormField';
-
-render(
-    <>
-        <FormField
-            boxMode
-            label="Text field box"
-            placeholder="Placeholder"
-            tips="Help text placed inside Text Field box."
-        />
-        <FormField is="select" boxMode label="Select field box">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </FormField>
-        <FormField is="select" multiple boxMode label="Multiple select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </FormField>
-        <FormField is="select" size={3} boxMode label="Size select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </FormField>
-        <FormField is="select" size={1} boxMode label="Size=1 select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </FormField>
-        <FormField
-            is="textarea"
-            rows={3}
-            boxMode
-            label="Textarea"
-            placeholder="Textarea"
-        />
-        <FormField
-            is="textarea"
-            rows={1}
-            boxMode
-            label="1 row textarea"
-            placeholder="1 row textarea"
-        />
-    </>
-);
-```
-
-### Sizes
-
-Change sizes using `size="lg"` and `size="sm"`.
-
-<Example>
-    <FormField
-        boxMode
-        size="lg"
-        label="Large"
-        placeholder="Large"
-        tips="Help text placed inside Text Field box."
-    />
-    <FormField boxMode label="Default" placeholder="Default" />
-    <FormField
-        boxMode
-        size="sm"
-        label="Small"
-        placeholder="Small"
-        tips="Help text placed inside Text Field box."
-    />
-</Example>
-
-```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { FormField } from 'material-cell/source/Form/FormField';
-
-render(
-    <>
-        <FormField
-            boxMode
-            size="lg"
-            label="Large"
-            placeholder="Large"
-            tips="Help text placed inside Text Field box."
-        />
-        <FormField boxMode label="Default" placeholder="Default" />
-        <FormField
-            boxMode
-            size="sm"
-            label="Small"
-            placeholder="Small"
-            tips="Help text placed inside Text Field box."
-        />
-    </>
-);
-```
-
-### With floating labels
-
-Text field boxes can be combined with floating labels.
-
-<Example>
-    <FormField boxMode labelFloat placeholder="Floating label" />
-    <FormField is="select" required boxMode labelFloat label="Floating label">
-        <option value="" />
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-    </FormField>
-    <FormField
-        is="textarea"
-        rows={3}
-        boxMode
-        labelFloat
-        placeholder="Textarea"
-    />
-    <FormField
-        is="textarea"
-        rows={1}
-        boxMode
-        labelFloat
-        placeholder="1 row textarea"
-    />
-</Example>
-
-```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { FormField } from 'material-cell/source/Form/FormField';
-
-render(
-    <>
-        <FormField boxMode labelFloat placeholder="Floating label" />
-        <FormField
-            is="select"
-            required
-            boxMode
-            labelFloat
-            label="Floating label"
-        >
-            <option value="" />
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </FormField>
-        <FormField
-            is="textarea"
-            rows={3}
-            boxMode
-            labelFloat
-            placeholder="Textarea"
-        />
-        <FormField
-            is="textarea"
-            rows={1}
-            boxMode
-            labelFloat
-            placeholder="1 row textarea"
-        />
-    </>
-);
-```
-
-Sizes can also be set by adding `size="lg"` and `size="sm"` properties.
-
-<Example>
-    <FormField
-        boxMode
-        size="lg"
-        labelFloat
-        placeholder="Large"
-        tips="Help text placed inside Text Field box."
-    />
-    <FormField boxMode labelFloat placeholder="Default" />
-    <FormField
-        boxMode
-        size="sm"
-        labelFloat
-        placeholder="Small"
-        tips="Help text placed inside Text Field box."
-    />
-</Example>
-
-```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { FormField } from 'material-cell/source/Form/FormField';
-
-render(
-    <>
-        <FormField
-            boxMode
-            size="lg"
-            labelFloat
-            placeholder="Large"
-            tips="Help text placed inside Text Field box."
-        />
-        <FormField boxMode labelFloat placeholder="Default" />
-        <FormField
-            boxMode
-            size="sm"
-            labelFloat
-            placeholder="Small"
-            tips="Help text placed inside Text Field box."
-        />
-    </>
-);
-```
-
-## With icons
-
-Icons describe the type of input a text field requires. They are displayed to the left of the text field.
-
-<Example>
-    <InputGroup size="lg">
-        <Icon name="event" />
-        <Field
-            placeholder="Large"
-            aria-label="Large icon signifier example input"
-        />
-    </InputGroup>
-    <InputGroup>
-        <Icon name="event" />
-        <Field
-            placeholder="Default"
-            aria-label="Default icon signifier example input"
-        />
-    </InputGroup>
-    <InputGroup size="sm">
-        <Icon name="event" />
-        <Field
-            placeholder="Small"
-            aria-label="Small icon signifier example input"
-        />
-    </InputGroup>
-    <InputGroup>
-        <Icon name="event" />
-        <Field
-            is="select"
-            multiple
-            aria-label="Icon signifier with multiple select example"
-        >
-            <option>With multiple select</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </Field>
-    </InputGroup>
-    <InputGroup>
-        <Icon name="event" />
-        <Field
-            is="textarea"
-            rows="3"
-            placeholder="With textarea"
-            aria-label="Icon signifier with textarea example"
-        />
-    </InputGroup>
-</Example>
-
-```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { InputGroup } from 'material-cell/source/Form/InputGroup';
-import { Icon } from 'material-cell/source/Reminder/Icon';
-import { Field } from 'boot-cell/source/Form/Field';
-
-render(
-    <>
-        <InputGroup size="lg">
-            <Icon name="event" />
-            <Field
-                placeholder="Large"
-                aria-label="Large icon signifier example input"
-            />
-        </InputGroup>
-        <InputGroup>
-            <Icon name="event" />
-            <Field
-                placeholder="Default"
-                aria-label="Default icon signifier example input"
-            />
-        </InputGroup>
-        <InputGroup size="sm">
-            <Icon name="event" />
-            <Field
-                placeholder="Small"
-                aria-label="Small icon signifier example input"
-            />
-        </InputGroup>
-        <InputGroup>
-            <Icon name="event" />
-            <Field
-                is="select"
-                multiple
-                aria-label="Icon signifier with multiple select example"
-            >
-                <option>With multiple select</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-            </Field>
-        </InputGroup>
-        <InputGroup>
-            <Icon name="event" />
-            <Field
-                is="textarea"
-                rows="3"
-                placeholder="With textarea"
-                aria-label="Icon signifier with textarea example"
-            />
-        </InputGroup>
-    </>
-);
-```
-
-`<InputGroup />` & `<Icon />` can also work with floating label text fields and text field boxes:
-
-<Example>
-    <InputGroup size="lg">
-        <Icon name="event" />
-        <FormField labelFloat placeholder="Large" />
-    </InputGroup>
-    <InputGroup>
-        <Icon name="event" />
-        <FormField labelFloat placeholder="Default" />
-    </InputGroup>
-    <InputGroup size="sm">
-        <Icon name="event" />
-        <FormField labelFloat placeholder="Small" />
-    </InputGroup>
-</Example>
-
-```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { InputGroup } from 'material-cell/source/Form/InputGroup';
-import { Icon } from 'material-cell/source/Reminder/Icon';
-import { FormField } from 'boot-cell/source/Form/FormField';
-
-render(
-    <>
-        <InputGroup size="lg">
-            <Icon name="event" />
-            <FormField labelFloat placeholder="Large" />
-        </InputGroup>
-        <InputGroup>
-            <Icon name="event" />
-            <FormField labelFloat placeholder="Default" />
-        </InputGroup>
-        <InputGroup size="sm">
-            <Icon name="event" />
-            <FormField labelFloat placeholder="Small" />
-        </InputGroup>
-    </>
-);
-```
-
-## Switches
-
-Switches toggle the state of a single settings option. The option that the switch controls,
-as well as the state it’s in, should be made clear from the corresponding inline label.
-
-<Example>
-    <ToggleField type="checkbox" switch>
-        Toggle this custom switch
-    </ToggleField>
+    <mwc-formfield label="Tomato">
+        <mwc-checkbox checked />
+    </mwc-formfield>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { ToggleField } from 'material-cell/source/Form/ToggleField';
+import type {} from 'material-cell';
+import '@material/mwc-formfield';
+import '@material/mwc-checkbox';
 
 render(
-    <ToggleField type="checkbox" switch>
-        Toggle this custom switch
-    </ToggleField>
+    <mwc-formfield label="Tomato">
+        <mwc-checkbox checked />
+    </mwc-formfield>
 );
 ```
 
-### Validation
-
-For details about how validation works, please check [this page][1]. The following section only provides some basic examples.
+### nowrap label with checkbox
 
 <Example>
-    <Form validated>
-        <ToggleField
-            type="checkbox"
-            switch
-            required
-            validMode="feedback"
-            validMessage="Example valid feedback text"
-            invalidMessage="Example invalid feedback text"
-        >
-            Toggle this custom switch
-        </ToggleField>
-    </Form>
+    <mwc-formfield
+        label="really really long label"
+        nowrap
+        style={{ width: '150px' }}
+    >
+        <mwc-checkbox />
+    </mwc-formfield>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Form } from 'boot-cell/source/Form/Form';
-import { ToggleField } from 'material-cell/source/Form/ToggleField';
+import type {} from 'material-cell';
+import '@material/mwc-formfield';
+import '@material/mwc-checkbox';
 
 render(
-    <Form validated>
-        <ToggleField
-            type="checkbox"
-            switch
-            required
-            validMode="feedback"
-            validMessage="Example valid feedback text"
-            invalidMessage="Example invalid feedback text"
-        >
-            Toggle this custom switch
-        </ToggleField>
-    </Form>
+    <mwc-formfield
+        label="really really long label"
+        nowrap
+        style={{ width: '150px' }}
+    >
+        <mwc-checkbox />
+    </mwc-formfield>
 );
 ```
 
-[1]: https://bootstrap.web-cell.dev/#components/form/formfield
+### With Radio
+
+<Example>
+    <mwc-formfield label="Home" style={{ display: 'block' }}>
+        <mwc-radio name="location" checked />
+    </mwc-formfield>
+    <mwc-formfield label="Work" style={{ display: 'block' }}>
+        <mwc-radio name="location" />
+    </mwc-formfield>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-formfield';
+import '@material/mwc-radio';
+
+render(
+    <mwc-formfield label="Home" style={{ display: 'block' }}>
+        <mwc-radio name="location" checked />
+    </mwc-formfield>
+    <mwc-formfield label="Work" style={{ display: 'block' }}>
+        <mwc-radio name="location" />
+    </mwc-formfield>
+);
+```
+
+### With Switch
+
+<Example>
+    <mwc-formfield label="Airplane mode">
+        <mwc-switch checked />
+    </mwc-formfield>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-formfield';
+import '@material/mwc-switch';
+
+render(
+    <mwc-formfield label="Airplane mode">
+        <mwc-switch checked />
+    </mwc-formfield>
+);
+```
+
+## API
+
+### Slots
+
+| Name      | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| _default_ | The input element that this form field provides a label for. |
+
+### Properties/Attributes
+
+| Name           | Type      | Description                                                                                           |
+| -------------- | --------- | ----------------------------------------------------------------------------------------------------- |
+| `label`        | `string`  | The text to display for the label and sets a11y label on input. (visually overriden by slotted label) |
+| `alignEnd`     | `boolean` | Align the component at the end of the label.                                                          |
+| `spaceBetween` | `boolean` | Add space between the component and the label as the formfield grows.                                 |
+| `nowrap`       | `boolean` | Prevents the label from wrapping and overflow text is ellipsed.                                       |
+
+### Methods
+
+_None_
+
+### Events
+
+_None_
+
+### CSS Custom Properties
+
+#### Global CSS Custom Properties
+
+This component exposes the following global [theming][3] custom properties.
+
+| Name                                | Description                             |
+| ----------------------------------- | --------------------------------------- |
+| `--mdc-typography-body2-<PROPERTY>` | Styles the typography of the formfield. |
+
+## Additional references
+
+-   [MDC Web Form Fields][4]
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
+[2]: https://material.io/components/selection-controls/
+[3]: https://github.com/material-components/material-components-web-components/blob/master/docs/theming.md
+[4]: https://material.io/develop/web/components/input-controls/form-fields/
