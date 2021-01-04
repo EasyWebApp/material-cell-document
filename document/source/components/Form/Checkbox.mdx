@@ -1,0 +1,218 @@
+---
+title: Check Box
+icon: check_box
+description: Checkboxes allow the user to select one or more items from a set. Checkboxes can be used to turn an option on or off.
+---
+
+import '@material/mwc-checkbox';
+import '@material/mwc-formfield';
+
+import { Example } from '../../../../source/component/Example';
+import { Color } from '../../../../source/component/Color';
+
+[Material Design Guidelines: Checkboxes][1]
+
+## Example usage
+
+### Standard
+
+<Example>
+    <mwc-checkbox
+        checked
+        onChange={({ target }) =>
+            console.log('checkbox changed to ' + target.checked)
+        }
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-checkbox';
+
+render(
+    <mwc-checkbox
+        checked
+        onChange={({ target }) =>
+            console.log('checkbox changed to ' + target.checked)
+        }
+    />
+);
+```
+
+### Standard, disabled
+
+<Example>
+    <div>
+        <mwc-checkbox />
+        <mwc-checkbox checked />
+        <mwc-checkbox indeterminate />
+    </div>
+    <div>
+        <mwc-checkbox disabled />
+        <mwc-checkbox disabled checked />
+        <mwc-checkbox disabled indeterminate />
+    </div>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-checkbox';
+
+render(
+    <>
+        <div>
+            <mwc-checkbox />
+            <mwc-checkbox checked />
+            <mwc-checkbox indeterminate />
+        </div>
+        <div>
+            <mwc-checkbox disabled />
+            <mwc-checkbox disabled checked />
+            <mwc-checkbox disabled indeterminate />
+        </div>
+    </>
+);
+```
+
+### Styled standard, disabled
+
+<Example
+    style={{
+        backgroundColor: '#363636',
+        '--mdc-theme-secondary': '#ff2929',
+        '--mdc-checkbox-unchecked-color': 'white',
+        '--mdc-theme-on-surface': 'white',
+        '--mdc-checkbox-disabled-color': '#adadad',
+        '--mdc-checkbox-ink-color': '#363636'
+    }}
+>
+    <div>
+        <mwc-checkbox />
+        <mwc-checkbox checked />
+        <mwc-checkbox indeterminate />
+    </div>
+    <div>
+        <mwc-checkbox disabled />
+        <mwc-checkbox disabled checked />
+        <mwc-checkbox disabled indeterminate />
+    </div>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-checkbox';
+
+render(
+    <div
+        style={{
+            backgroundColor: '#363636',
+            '--mdc-theme-secondary': '#ff2929',
+            '--mdc-checkbox-unchecked-color': 'white',
+            /* Required for unchecked focus ripple */
+            '--mdc-theme-on-surface': 'white',
+            '--mdc-checkbox-disabled-color': '#adadad',
+            '--mdc-checkbox-ink-color': '#363636'
+        }}
+    >
+        <div>
+            <mwc-checkbox />
+            <mwc-checkbox checked />
+            <mwc-checkbox indeterminate />
+        </div>
+        <div>
+            <mwc-checkbox disabled />
+            <mwc-checkbox disabled checked />
+            <mwc-checkbox disabled indeterminate />
+        </div>
+    </div>
+);
+```
+
+### With Form Field
+
+Most applications should use [`<mwc-formfield>`][2] to associate an interactive label with the checkbox.
+
+<Example>
+    <mwc-formfield style={{ display: 'block' }} label="Additions">
+        <mwc-checkbox indeterminate />
+    </mwc-formfield>
+    <mwc-formfield label="Pickles">
+        <mwc-checkbox style={{ marginLeft: '20px' }} />
+    </mwc-formfield>
+    <mwc-formfield label="Tomato">
+        <mwc-checkbox style={{ marginLeft: '20px' }} checked />
+    </mwc-formfield>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-formfield';
+import '@material/mwc-checkbox';
+
+render(
+    <>
+        <mwc-formfield style={{ display: 'block' }} label="Additions">
+            <mwc-checkbox indeterminate />
+        </mwc-formfield>
+        <mwc-formfield label="Pickles">
+            <mwc-checkbox style={{ marginLeft: '20px' }} />
+        </mwc-formfield>
+        <mwc-formfield label="Tomato">
+            <mwc-checkbox style={{ marginLeft: '20px' }} checked />
+        </mwc-formfield>
+    </>
+);
+```
+
+## API
+
+### Properties/Attributes
+
+| Name                 | Type      | Default | Description                                                                                                                                                                |
+| -------------------- | --------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `checked`            | `boolean` | `false` | Whether the checkbox is checked.                                                                                                                                           |
+| `indeterminate`      | `boolean` | `false` | When a checkbox is the parent of a set of child checkboxes, the _indeterminate_ state is used on the parent to indicate that some but not all of its children are checked. |
+| `disabled`           | `boolean` | `false` | When `true`, the checkbox cannot be interacted with, and renders in muted colors.                                                                                          |
+| `value`              | `string`  | `''`    | The value that will be included if the checkbox is submitted in a form.                                                                                                    |
+| `reducedTouchTarget` | `boolean` | `false` | When `true`, the checkbox remove padding for touchscreens and increase density. Note, the checkbox will no longer meet accessibility guidelines for touch.                 |
+
+### Methods
+
+_None_
+
+### Events
+
+| Event Name | Target         | Detail | Description                                                                                                                                                                                                                                                        |
+| ---------- | -------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `change`   | `mwc-checkbox` | `{}`   | Fired when the user modifies the checkbox `checked` or `indeterminate` states from an input device interaction. Note that, like [native `<input>`][3], the `change` event is _not_ fired when the `checked` or `indeterminate` properties are set from JavaScript. |
+
+### CSS Custom Properties
+
+| Name                             | Default                            | Description                                                                         |
+| -------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------- |
+| `--mdc-checkbox-ink-color`       | <Color>#fff</Color>                | Color of mark inside a `checked` or `indeterminate` checkbox (enabled or disabled). |
+| `--mdc-checkbox-unchecked-color` | <Color>rgba(0, 0, 0, 0.54)</Color> | Color of the unchecked box.                                                         |
+| `--mdc-checkbox-disabled-color`  | <Color>rgba(0, 0, 0, 0.38)</Color> | Color of the checkbox box and fill when disabled.                                   |
+
+#### Global Custom Properties
+
+This component exposes the following global [theming][4] custom properties.
+
+| Name                     | Description                                                                                                                 |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `--mdc-theme-secondary`  | Background color when the checkbox is `checked` or `indeterminate`, and the base color of the ripple effect and focus halo. |
+| `--mdc-theme-on-surface` | Color of mark inside a `checked` or `indeterminate` checkbox (enabled or disabled).                                         |
+
+## Additional references
+
+-   [MDC Web Checkboxes][5]
+
+[1]: https://material.io/components/selection-controls/#checkboxes
+[2]: components/form/formfield
+[3]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
+[4]: https://github.com/material-components/material-components-web-components/blob/master/docs/theming.md
+[5]: https://material.io/develop/web/components/input-controls/checkboxes/

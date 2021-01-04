@@ -24,13 +24,13 @@
         "@material/mwc-snackbar": "^0.20.0",
         "@material/mwc-switch": "^0.20.0",
         "@material/mwc-top-app-bar-fixed": "^0.20.0",
-        "boot-cell": "^1.9.1",
-        "cell-router": "^2.0.3",
+        "boot-cell": "^1.9.2",
+        "cell-router": "^2.0.4",
         "classnames": "^2.2.6",
         "github-web-widget": "^3.0.0-beta.8",
         "material-cell": "^2.0.0-rc.2",
-        "web-cell": "^2.3.0-beta.4",
-        "web-utility": "^2.3.0"
+        "web-cell": "^2.3.0-beta.5",
+        "web-utility": "^2.4.1"
     },
     "devDependencies": {
         "@types/classnames": "^2.2.11",
