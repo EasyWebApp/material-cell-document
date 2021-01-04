@@ -15,7 +15,7 @@ export function DocumentBox({
     defaultSlot,
     ...rest
 }: DocumentBoxProps) {
-    const name = title.replace(/\s+/g, '').toLowerCase();
+    const name = title.replace(/\s+/g, '-').toLowerCase();
 
     return (
         <PageFrame

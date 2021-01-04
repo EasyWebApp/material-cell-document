@@ -1,0 +1,127 @@
+---
+title: Circular Progress four color
+icon: timelapse
+description: The four color circular progress indicator rotates between four colors in indeterminate mode.
+---
+
+import '@material/mwc-circular-progress-four-color';
+
+import { Example } from '../../../../source/component/Example';
+
+[Material Design Guidelines: Progress Indicators][1]
+
+## Example usage
+
+### Determinate
+
+<Example>
+    <mwc-circular-progress-four-color progress="0.7" />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-circular-progress-four-color';
+
+render(
+    <mwc-circular-progress-four-color progress="0.7" />
+);
+```
+
+### Indeterminate
+
+<Example>
+    <mwc-circular-progress-four-color indeterminate />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-circular-progress-four-color';
+
+render(
+    <mwc-circular-progress-four-color indeterminate />
+);
+```
+
+### Styled
+
+The four-color Circular Progress Indicator does not specify the value of the
+four colors by default. These colors may be specified as follows:
+
+<Example>
+    <mwc-circular-progress-four-color
+        indeterminate
+        style={{
+            '--mdc-circular-progress-bar-color-1': '#2196f3',
+            '--mdc-circular-progress-bar-color-2': '#e91e63',
+            '--mdc-circular-progress-bar-color-3': '#ffc107',
+            '--mdc-circular-progress-bar-color-4': '#03dac5'
+        }}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-circular-progress-four-color';
+
+render(
+    <mwc-circular-progress-four-color
+        indeterminate
+        style={{
+            '--mdc-circular-progress-bar-color-1': '#2196f3',
+            '--mdc-circular-progress-bar-color-2': '#e91e63',
+            '--mdc-circular-progress-bar-color-3': '#ffc107',
+            '--mdc-circular-progress-bar-color-4': '#03dac5'
+        }}
+    />
+);
+```
+
+## API
+
+### Slots
+
+None
+
+### Properties/Attributes
+
+| Name            | Type      | Default | Description                                                                                                                                                                                                 |
+| --------------- | --------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `indeterminate` | `boolean` | `false` | Sets the circular-progress into its indeterminate state.                                                                                                                                                    |
+| `progress`      | `number`  | `0`     | Sets the progress bar's value. Value should be between [0, 1].                                                                                                                                              |
+| `density`       | `number`  | `0`     | Sets the progress indicator's sizing based on density scale. Minimum value is `-8`. Each unit change in density scale corresponds to 4px change in side dimensions. The stroke width adjusts automatically. |
+| `closed`        | `boolean` | `false` | Sets the progress indicator to the closed state. Sets content opacity to 0. Typically should be set to true when loading has finished.                                                                      |
+
+### Methods
+
+| Name              | Description                                |
+| ----------------- | ------------------------------------------ |
+| `open() => void`  | Sets `CircularProgress.closed` to `false`; |
+| `close() => void` | Sets `CircularProgress.closed` to `true`;  |
+
+### Events
+
+None
+
+### CSS Custom Properties
+
+| Name                                  | Default               | Description                                           |
+| ------------------------------------- | --------------------- | ----------------------------------------------------- |
+| `--mdc-circular-progress-bar-color-1` | `--mdc-theme-primary` | Sets the first of the four rotating colors.           |
+| `--mdc-circular-progress-bar-color-2` | `--mdc-theme-primary` | Sets the second of the four rotating colors.          |
+| `--mdc-circular-progress-bar-color-3` | `--mdc-theme-primary` | Sets the third of the four rotating colors.           |
+| `--mdc-circular-progress-bar-color-4` | `--mdc-theme-primary` | Sets the last of the four rotating colors.            |
+| `--mdc-circular-progress-track-color` | transparent           | Sets the track color of the determinate progress bar. |
+
+#### Global Custom Properties
+
+This component exposes the following global [theming][2] custom properties.
+
+| Name                  | Description                                                                                                                             |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `--mdc-theme-primary` | Sets the color of determinate progress bar. If the indeterminate four colors are unset, sets the color for indeterminate state as well. |
+
+[1]: https://material.io/components/progress-indicators/#circular-progress-indicators
+[2]: https://github.com/material-components/material-components-web-components/blob/master/docs/theming.md

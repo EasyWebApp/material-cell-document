@@ -16,6 +16,7 @@
         "@material/mwc-button": "^0.20.0",
         "@material/mwc-checkbox": "^0.20.0",
         "@material/mwc-circular-progress": "^0.20.0",
+        "@material/mwc-circular-progress-four-color": "^0.20.0",
         "@material/mwc-drawer": "^0.20.0",
         "@material/mwc-formfield": "^0.20.0",
         "@material/mwc-icon": "^0.20.0",
