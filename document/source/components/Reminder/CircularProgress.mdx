@@ -1,0 +1,110 @@
+---
+title: Circular Progress
+icon: timelapse
+description: Progress indicators express an unspecified wait time or display the length of a process.
+---
+
+import '@material/mwc-circular-progress';
+
+import { Example } from '../../../../source/component/Example';
+
+[Material Design Guidelines: Progress Indicators][1]
+
+## Example usage
+
+### Determinate
+
+<Example>
+    <mwc-circular-progress progress="0.7" />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-circular-progress';
+
+render(
+    <mwc-circular-progress progress="0.7" />
+);
+```
+
+### Indeterminate
+
+<Example>
+    <mwc-circular-progress indeterminate />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-circular-progress';
+
+render(
+    <mwc-circular-progress indeterminate />
+);
+```
+
+### Styled
+
+<Example>
+    <mwc-circular-progress
+        indeterminate
+        style={{ '--mdc-theme-primary': 'red' }}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-circular-progress';
+
+render(
+    <mwc-circular-progress
+        indeterminate
+        style={{ '--mdc-theme-primary': 'red' }}
+    />
+);
+```
+
+## API
+
+### Slots
+
+None
+
+### Properties/Attributes
+
+| Name            | Type      | Default | Description                                                                                                                                                                                                 |
+| --------------- | --------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `indeterminate` | `boolean` | `false` | Sets the circular-progress into its indeterminate state.                                                                                                                                                    |
+| `progress`      | `number`  | `0`     | Sets the progress bar's value. Value should be between [0, 1].                                                                                                                                              |
+| `density`       | `number`  | `0`     | Sets the progress indicator's sizing based on density scale. Minimum value is `-8`. Each unit change in density scale corresponds to 4px change in side dimensions. The stroke width adjusts automatically. |
+| `closed`        | `boolean` | `false` | Sets the progress indicator to the closed state. Sets content opacity to 0. Typically should be set to true when loading has finished.                                                                      |
+
+### Methods
+
+| Name              | Description                                |
+| ----------------- | ------------------------------------------ |
+| `open() => void`  | Sets `CircularProgress.closed` to `false`; |
+| `close() => void` | Sets `CircularProgress.closed` to `true`;  |
+
+### Events
+
+None
+
+### CSS Custom Properties
+
+| Name                                  | Default     | Description                                           |
+| ------------------------------------- | ----------- | ----------------------------------------------------- |
+| `--mdc-circular-progress-track-color` | transparent | Sets the track color of the determinate progress bar. |
+
+#### Global Custom Properties
+
+This component exposes the following global [theming][2] custom properties.
+
+| Name                  | Description                             |
+| --------------------- | --------------------------------------- |
+| `--mdc-theme-primary` | Sets the color of primary progress bar. |
+
+[1]: https://material.io/components/progress-indicators/#circular-progress-indicators
+[2]: https://github.com/material-components/material-components-web-components/blob/master/docs/theming.md
