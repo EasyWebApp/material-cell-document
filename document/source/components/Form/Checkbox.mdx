@@ -1,5 +1,5 @@
 ---
-title: CheckBox
+title: Checkbox
 icon: check_box
 description: Checkboxes allow the user to select one or more items from a set. Checkboxes can be used to turn an option on or off.
 ---
@@ -20,7 +20,7 @@ import { Color } from '../../../../source/component/Color';
     <mwc-checkbox
         checked
         onChange={({ target }) =>
-            console.log('checkbox changed to ' + target.checked)
+            console.log(`checkbox changed to ${target.checked}`)
         }
     />
 </Example>
@@ -34,7 +34,7 @@ render(
     <mwc-checkbox
         checked
         onChange={({ target }) =>
-            console.log('checkbox changed to ' + target.checked)
+            console.log(`checkbox changed to ${target.checked}`)
         }
     />
 );
@@ -212,7 +212,7 @@ This component exposes the following global [theming][4] custom properties.
 -   [MDC Web Checkboxes][5]
 
 [1]: https://material.io/components/selection-controls/#checkboxes
-[2]: components/form/formfield
+[2]: components/form/form-field
 [3]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
 [4]: https://github.com/material-components/material-components-web-components/blob/master/docs/theming.md
 [5]: https://material.io/develop/web/components/input-controls/checkboxes/

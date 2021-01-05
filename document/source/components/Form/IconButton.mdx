@@ -1,0 +1,185 @@
+---
+title: Icon Button
+icon: filter_center_focus
+description: Icon buttons allow users to take actions, and make choices, with a single tap.
+---
+
+import '@material/mwc-icon-button';
+
+import { Example } from '../../../../source/component/Example';
+
+For the toggling version of this component, see [`<mwc-icon-button-toggle>`][1]
+
+[Material Design Guidelines: Button][2]
+
+## Example Usage
+
+### Standard
+
+<Example>
+    <mwc-icon-button icon="code" />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-icon-button';
+
+render(
+    <mwc-icon-button icon="code" />
+);
+```
+
+### SVG or Image
+
+<Example>
+    <mwc-icon-button>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+        >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg>
+    </mwc-icon-button>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-icon-button';
+
+render(
+    <mwc-icon-button>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+        >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg>
+    </mwc-icon-button>
+);
+```
+
+### Disabled
+
+<Example>
+    <mwc-icon-button icon="code" disabled />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-icon-button';
+
+render(
+    <mwc-icon-button icon="code" disabled />
+);
+```
+
+### Custom Style
+
+<Example>
+    <mwc-icon-button
+        icon="code"
+        style={{
+            color: 'tomato',
+            '--mdc-icon-size': '50px'
+        }}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-icon-button';
+
+render(
+    <mwc-icon-button
+        icon="code"
+        style={{
+            color: 'tomato',
+            '--mdc-icon-size': '50px'
+        }}
+    />
+);
+```
+
+## Fonts
+
+Most users should include the following in their application HTML when using icons:
+
+```html
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+/>
+```
+
+This loads the _Material Icons_ font, which is required to render icons, and is
+_not_ loaded automatically. If you see plain text instead of an icon, then the
+most likely cause is that the Material Icons font is not loaded.
+
+To see all icons that are available in the Material Icons font, see [Material Icons][3].
+
+For technical details about the Material Icons font, see the [Material Icons Developer Guide][4].
+
+## API
+
+### Slots
+
+| Name      | Description                                                          |
+| --------- | -------------------------------------------------------------------- |
+| _default_ | Optional `<img>` or `<svg>` to display instead of using an icon font |
+
+### Properties/Attributes
+
+| Name       | Type      | Default | Description                                                                       |
+| ---------- | --------- | ------- | --------------------------------------------------------------------------------- |
+| `icon`     | `string`  | `''`    | Icon to display, and `aria-label` value when `label` is not defined.              |
+| `label`    | `string`  | `''`    | Accessible label for the button, sets `aria-label`.                               |
+| `disabled` | `boolean` | `false` | Disabled buttons cannot be interacted with and have no visual interaction effect. |
+
+### Methods
+
+_None_
+
+### Events
+
+_None_
+
+### CSS Custom Properties
+
+Inherits CSS Custom properties from:
+
+-   [`mwc-ripple`][5]
+
+| Name                     | Default | Description                                    |
+| ------------------------ | ------- | ---------------------------------------------- |
+| `--mdc-icon-button-size` | `48px`  | Sets the size of the button wrapping the icon. |
+
+#### Global Custom Properties
+
+This component exposes the following global [theming][6] custom properties.
+
+| Name                                 | Description                                                                                          |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| `--mdc-icon-font`                    | Font that supports _ligatures_ and determines which icons are available (see [fonts](#fonts) above). |
+| `--mdc-icon-size`                    | Sets the size of the icon.                                                                           |
+| `--mdc-theme-text-disabled-on-light` | Color of icon when `disabled` is `true`.                                                             |
+
+## Additional references
+
+-   [MDC Web: Icon Buttons](https://material.io/develop/web/components/buttons/icon-buttons/)
+
+[1]: components/form/icon-button-toggle
+[2]: https://material.io/design/components/buttons.html
+[3]: https://material.io/resources/icons/
+[4]: https://google.github.io/material-design-icons/
+[5]: components/ripple
+[6]: https://github.com/material-components/material-components-web-components/blob/master/docs/theming.md
