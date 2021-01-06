@@ -29,6 +29,7 @@
         "@material/mwc-select": "^0.20.0",
         "@material/mwc-snackbar": "^0.20.0",
         "@material/mwc-switch": "^0.20.0",
+        "@material/mwc-textfield": "^0.20.0",
         "@material/mwc-top-app-bar-fixed": "^0.20.0",
         "boot-cell": "^1.9.2",
         "cell-router": "^2.0.4",

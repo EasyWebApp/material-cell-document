@@ -362,7 +362,23 @@ render(
 | `validityTransform`       | `ValidityTransform`\*\*\|`null` | `null`              | Callback called before each validation check. See the [mwc-textfield's validation section][5] for more details.                                                                                                                                                                                                                |
 | `validateOnInitialRender` | `boolean`                       | `false`             | Runs validation check on initial render.                                                                                                                                                                                                                                                                                       |
 
-\* `DefaultValidity` is: `ts { badInput: false, customError: false, patternMismatch: false, rangeOverflow: false, rangeUnderflow: false, stepMismatch: false, tooLong: false, tooShort: false, typeMismatch: false, valid: true, valueMissing: false, }`
+\* `DefaultValidity` is:
+
+```ts
+{
+    badInput: false,
+    customError: false,
+    patternMismatch: false,
+    rangeOverflow: false,
+    rangeUnderflow: false,
+    stepMismatch: false,
+    tooLong: false,
+    tooShort: false,
+    typeMismatch: false,
+    valid: true,
+    valueMissing: false
+}
+```
 
 \*\* See [`mwc-textfield`'s properties section][6] for more info.
 
