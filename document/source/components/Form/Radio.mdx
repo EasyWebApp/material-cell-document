@@ -1,0 +1,198 @@
+---
+title: Radio
+icon: radio_button_checked
+description: Radio buttons allow the user to select one option from a set. Use radio buttons when the user needs to see all available options.
+---
+
+import '@material/mwc-radio';
+import '@material/mwc-formfield';
+
+import { Example } from '../../../../source/component/Example';
+import { Color } from '../../../../source/component/Color';
+
+[Material Design Guidelines: Radio buttons][1]
+
+## Example usage
+
+### Standard
+
+<Example>
+    <mwc-radio name="myGroup" value="value1" />
+    <mwc-radio name="myGroup" value="value2" checked />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-radio';
+
+render(
+    <>
+        <mwc-radio name="myGroup" value="value1" />
+        <mwc-radio name="myGroup" value="value2" checked />
+    </>
+);
+```
+
+### Custom color
+
+<Example id="custom-color">
+    <style>
+        {`#custom-color mwc-radio {
+            background-color: #363636;
+            --mdc-theme-secondary: #ff2929;
+            --mdc-radio-unchecked-color: white;
+        }`}
+    </style>
+    <mwc-radio name="myGroup" checked />
+    <mwc-radio name="myGroup" />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-radio';
+
+render(
+    <>
+        <style>
+            {`mwc-radio {
+                background-color: #363636;
+                --mdc-theme-secondary: #ff2929;
+                --mdc-radio-unchecked-color: white;
+            }`}
+        </style>
+        <mwc-radio name="myGroup" checked />
+        <mwc-radio name="myGroup" />
+    </>
+);
+```
+
+### Disabled custom color
+
+<Example id="disabled-custom-color">
+    <style>
+        {`#disabled-custom-color mwc-radio {
+            background-color: #363636;
+            --mdc-radio-disabled-color: #adadad;
+        }`}
+    </style>
+    <mwc-radio disabled name="myGroup" />
+    <mwc-radio disabled name="myGroup" checked />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-radio';
+
+render(
+    <>
+        <style>
+            {`mwc-radio {
+                background-color: #363636;
+                --mdc-radio-disabled-color: #adadad;
+            }`}
+        </style>
+        <mwc-radio disabled name="myGroup" />
+        <mwc-radio disabled name="myGroup" checked />
+    </>
+);
+```
+
+### With Form Field
+
+Most applications should use [`<mwc-formfield>`][2] to associate an interactive label with the radio.
+
+<Example id="with-form-field">
+    <style>
+        {`#with-form-field mwc-formfield {
+            display: block;
+        }`}
+    </style>
+    <mwc-formfield label="Home">
+        <mwc-radio name="location" />
+    </mwc-formfield>
+    <mwc-formfield label="Work">
+        <mwc-radio name="location" />
+    </mwc-formfield>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-radio';
+import '@material/mwc-formfield';
+
+render(
+    <>
+        <style>
+            {`mwc-formfield {
+                display: block;
+            }`}
+        </style>
+        <mwc-formfield label="Home">
+            <mwc-radio name="location" />
+        </mwc-formfield>
+        <mwc-formfield label="Work">
+            <mwc-radio name="location" />
+        </mwc-formfield>
+    </>
+);
+```
+
+## API
+
+### Slots
+
+_None_
+
+### Properties/Attributes
+
+| Name                 | Type      | Default | Description                                                                                                                                                                                |
+| -------------------- | --------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `checked`            | `boolean` | `false` | Whether this radio button is the currently-selected one in its group. Maps to the native [`checked`][3] attribute.                                                                         |
+| `disabled`           | `boolean` | `false` | If `true`, this radio button cannot be selected or de-selected. Maps to the native [`disabled`][4] attribute.                                                                              |
+| `name`               | `string`  | `''`    | Name of the input for form submission, and identifier for the selection group. Only one radio button can be checked for a given selection group. Maps to the native [`name`][5] attribute. |
+| `value`              | `string`  | `''`    | Value of the input for form submission. Maps to the native [`value`][6] attribute.                                                                                                         |
+| `global`             | `boolean` | `false` | If `true`, this radio button will use a global, document-level scope for its selection group rather than its local shadow root.                                                            |
+| `reducedTouchTarget` | `boolean` | `false` | When `true`, the radio removes touch target that extends beyond visual boundary of the component. Set to `false` by default to meet Material [accessibility guidelines][7].                |
+
+### Methods
+
+_None_
+
+### Events
+
+| Name     | Detail | Description                                                                                                                                                                                                                                                                                                 |
+| -------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `change` | `{}`   | Fired when the user modifies the radio `checked` state from an input device interaction on this radio. Note that, like [native `<input>`][8], the `change` event is _not_ fired when the `checked` property is set from JavaScript, nor is it fired when another radio in the same group becomes `checked`. |
+
+### CSS Custom Properties
+
+| Name                          | Default                            | Description                                       |
+| ----------------------------- | ---------------------------------- | ------------------------------------------------- |
+| `--mdc-radio-unchecked-color` | <Color>rgba(0, 0, 0, 0.54)</Color> | Color of the ring of an unchecked radio.          |
+| `--mdc-radio-disabled-color`  | <Color>rgba(0, 0, 0, 0.38)</Color> | Color of the ring and circle of a disabled radio. |
+
+#### Global Custom Properties
+
+This component exposes the following global [theming][9] custom properties.
+
+| Name                    | Description                |
+| ----------------------- | -------------------------- |
+| `--mdc-theme-secondary` | Color of the radio button. |
+
+## Additional references
+
+-   [MDC Web: Radio Buttons](https://material.io/develop/web/components/input-controls/radio-buttons/)
+
+[1]: https://material.io/design/components/selection-controls.html#radio-buttons
+[2]: components/form/form-field
+[3]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#checked
+[4]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#disabled
+[5]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name
+[6]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#value
+[7]: https://material.io/design/usability/accessibility.html
+[8]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
+[9]: https://github.com/material-components/material-components-web-components/blob/master/docs/theming.md
