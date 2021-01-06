@@ -100,7 +100,12 @@ render(
 
 ### Custom action button color
 
-<Example>
+<Example id="custom-action-button-color">
+    <style>
+        {`#custom-action-button-color mwc-snackbar {
+            --mdc-snackbar-action-color: #64dc17;
+        }`}
+    </style>
     <mwc-button
         raised
         onClick={({ target }) =>
@@ -111,7 +116,6 @@ render(
         Show Snackbar
     </mwc-button>
     <mwc-snackbar
-        style={{ '--mdc-snackbar-action-color': '#64dc17' }} 
         labelText="Can't send photo. Retry in 5 seconds."
     >
         <mwc-button slot="action">RETRY</mwc-button>
@@ -127,6 +131,11 @@ import '@material/mwc-button';
 
 render(
     <>
+        <style>
+            {`mwc-snackbar {
+                --mdc-snackbar-action-color: #64dc17;
+            }`}
+        </style>
         <mwc-button
             raised
             onClick={({ target }) =>
@@ -137,7 +146,6 @@ render(
             Show Snackbar
         </mwc-button>
         <mwc-snackbar
-            style={{ '--mdc-snackbar-action-color': '#64dc17' }}
             labelText="Can't send photo. Retry in 5 seconds."
         >
             <mwc-button slot="action">RETRY</mwc-button>

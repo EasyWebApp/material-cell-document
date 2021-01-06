@@ -85,29 +85,31 @@ render(
 
 ### Customize colors
 
-<Example>
-    <mwc-fab
-        icon="share"
-        style={{
-            '--mdc-theme-secondary': 'white',
-            '--mdc-theme-on-secondary': 'black'
-        }}
-    />
+<Example id="customize-colors">
+    <style>
+        {`#customize-colors mwc-fab {
+            --mdc-theme-secondary: white;
+            --mdc-theme-on-secondary: black;
+        }`}
+    </style>
+    <mwc-fab icon="share" />
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
+import { render, createCell, Fragment } from 'web-cell';
 import type {} from 'material-cell';
 import '@material/mwc-fab';
 
 render(
-    <mwc-fab
-        icon="share"
-        style={{
-            '--mdc-theme-secondary': 'white',
-            '--mdc-theme-on-secondary': 'black'
-        }}
-    />
+    <>
+        <style>
+            {`mwc-fab {
+                --mdc-theme-secondary: white;
+                --mdc-theme-on-secondary: black;
+            }`}
+        </style>
+        <mwc-fab icon="share" />
+    </>
 );
 ```
 

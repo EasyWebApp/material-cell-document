@@ -68,21 +68,31 @@ render(
 
 ### Styled
 
-<Example>
-    <mwc-icon style={{ color: '#03a9f4', '--mdc-icon-size': '64px' }}>
-        accessible_forward
-    </mwc-icon>
+<Example id="styled">
+    <style>
+        {`#styled mwc-icon { 
+            color: #03a9f4; 
+            --mdc-icon-size: 64px;
+        }`}
+    </style>
+    <mwc-icon>accessible_forward</mwc-icon>
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
+import { render, createCell, Fragment } from 'web-cell';
 import type {} from 'material-cell';
 import '@material/mwc-icon';
 
 render(
-    <mwc-icon style={{ color: '#03a9f4', '--mdc-icon-size': '64px' }}>
-        accessible_forward
-    </mwc-icon>
+    <>
+        <style>
+            {`mwc-icon {
+                color: #03a9f4;
+                --mdc-icon-size: 64px;
+            }`}
+        </style>
+        <mwc-icon>accessible_forward</mwc-icon>
+    </>
 );
 ```
 

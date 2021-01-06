@@ -179,31 +179,31 @@ render(
 
 ### Customize Colors
 
-<Example>
-    <mwc-button
-        style={{
-            '--mdc-theme-primary': '#e9437a',
-            '--mdc-theme-on-primary': 'white'
-        }}
-    >
-        customize colors
-    </mwc-button>
+<Example id="customize-colors">
+    <style>
+        {`#customize-colors mwc-button {
+            --mdc-theme-primary: #e9437a;
+            --mdc-theme-on-primary: white;
+        }`}
+    </style>
+    <mwc-button>customize colors</mwc-button>
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
+import { render, createCell, Fragment } from 'web-cell';
 import type {} from 'material-cell';
 import '@material/mwc-button';
 
 render(
-    <mwc-button
-        style={{
-            '--mdc-theme-primary': '#e9437a',
-            '--mdc-theme-on-primary': 'white'
-        }}
-    >
-        customize colors
-    </mwc-button>
+    <>
+        <style>
+            {`mwc-button {
+                --mdc-theme-primary: #e9437a;
+                --mdc-theme-on-primary: white;
+            }`}
+        </style>
+        <mwc-button>customize colors</mwc-button>
+    </>
 );
 ```
 

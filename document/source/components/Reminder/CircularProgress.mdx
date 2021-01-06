@@ -46,23 +46,29 @@ render(
 
 ### Styled
 
-<Example>
-    <mwc-circular-progress
-        indeterminate
-        style={{ '--mdc-theme-primary': 'red' }}
-    />
+<Example id="styled">
+    <style>
+        {`#styled mwc-circular-progress {
+            --mdc-theme-primary: red;
+        }`}
+    </style>
+    <mwc-circular-progress indeterminate />
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
+import { render, createCell, Fragment } from 'web-cell';
 import type {} from 'material-cell';
 import '@material/mwc-circular-progress';
 
 render(
-    <mwc-circular-progress
-        indeterminate
-        style={{ '--mdc-theme-primary': 'red' }}
-    />
+    <>
+        <style>
+            {`mwc-circular-progress {
+                --mdc-theme-primary: red;
+            }`}
+        </style>
+        <mwc-circular-progress indeterminate />
+    </>
 );
 ```
 

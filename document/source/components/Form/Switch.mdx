@@ -1,0 +1,167 @@
+---
+title: Switch
+icon: toggle_on
+description: Switches toggle the state of a single setting on or off. They are the preferred way to adjust settings on mobile.
+---
+
+import '@material/mwc-switch';
+import '@material/mwc-formfield';
+
+import { Example } from '../../../../source/component/Example';
+import { Color } from '../../../../source/component/Color';
+
+[Material Design Guidelines: Switch][1]
+
+## Example Usage
+
+### Standard
+
+<Example>
+    <mwc-switch />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-switch';
+
+render(<mwc-switch />);
+```
+
+### Checked by default
+
+<Example>
+    <mwc-switch checked />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-switch';
+
+render(<mwc-switch checked />);
+```
+
+### Disabled
+
+<Example>
+    <mwc-switch disabled />
+    <mwc-switch checked disabled />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-switch';
+
+render(
+    <>
+        <mwc-switch disabled />
+        <mwc-switch checked disabled />
+    </>
+);
+```
+
+### Styled
+
+<Example id="styled">
+    <style>
+        {`#styled mwc-switch {
+            --mdc-theme-surface: blue;
+            --mdc-theme-on-surface: blue;
+            --mdc-theme-secondary: red;
+        }`}
+    </style>
+    <mwc-switch />
+    <mwc-switch checked />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-switch';
+
+render(
+    <>
+        <style>
+            {`mwc-switch {
+                --mdc-theme-surface: blue;
+                --mdc-theme-on-surface: blue;
+                --mdc-theme-secondary: red;
+            }`}
+        </style>
+        <mwc-switch />
+        <mwc-switch checked />
+    </>
+);
+```
+
+### With Form Field
+
+Most applications should use [`<mwc-formfield>`][2] to associate an interactive label with the switch.
+
+<Example>
+    <mwc-formfield label="Airplane mode">
+        <mwc-switch checked />
+    </mwc-formfield>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-switch';
+
+render(
+    <mwc-formfield label="Airplane mode">
+        <mwc-switch checked />
+    </mwc-formfield>
+);
+```
+
+## API
+
+### Slots
+
+_None_
+
+### Properties/Attributes
+
+| Name       | Type      | Default | Description                                              |
+| ---------- | --------- | ------- | -------------------------------------------------------- |
+| `checked`  | `boolean` | `false` | Whether or not the switch should be checked / activated. |
+| `disabled` | `boolean` | `false` | Disables the input and sets the disabled styles.         |
+
+### Methods
+
+_None_
+
+### Events
+
+| Event Name | Target       | Detail | Description                                                                                                                                                                                                            |
+| ---------- | ------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `change`   | `mwc-switch` | `{}`   | Fired when the user modifies the switch `checked` state from an input device interaction. Note that, like [native `<input>`][3], the `change` event is _not_ fired when the `checked` property is set from JavaScript. |
+
+### CSS Custom Properties
+
+Inherits styles from [ripple][4]
+
+#### Global Custom Properties
+
+This component exposes the following global [theming][5] custom properties.
+
+| Name                     | Description                                                                |
+| ------------------------ | -------------------------------------------------------------------------- |
+| `--mdc-theme-surface`    | Fill color of the thumb head when unchecked.                               |
+| `--mdc-theme-on-surface` | 38% fill color of the track when unchecked.                                |
+| `--mdc-theme-secondary`  | Fill color of the thumb head and 38% fill color of the track when checked. |
+
+## Additional references
+
+-   [MDC Web: Switch][6]
+
+[1]: https://material.io/components/selection-controls/#switches
+[2]: components/form/form-field
+[3]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
+[4]: components/ripple
+[5]: https://github.com/material-components/material-components-web-components/blob/master/docs/theming.md
+[6]: https://material.io/components/switches

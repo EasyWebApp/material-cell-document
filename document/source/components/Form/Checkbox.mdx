@@ -135,15 +135,23 @@ render(
 
 Most applications should use [`<mwc-formfield>`][2] to associate an interactive label with the checkbox.
 
-<Example>
-    <mwc-formfield style={{ display: 'block' }} label="Additions">
+<Example id="with-form-field">
+    <style>
+        {`#with-form-field mwc-formfield {
+            display: block;
+        }
+        #with-form-field mwc-checkbox { 
+            margin-left: 20px;
+        }`}
+    </style>
+    <mwc-formfield label="Additions">
         <mwc-checkbox indeterminate />
     </mwc-formfield>
     <mwc-formfield label="Pickles">
-        <mwc-checkbox style={{ marginLeft: '20px' }} />
+        <mwc-checkbox />
     </mwc-formfield>
     <mwc-formfield label="Tomato">
-        <mwc-checkbox style={{ marginLeft: '20px' }} checked />
+        <mwc-checkbox checked />
     </mwc-formfield>
 </Example>
 
@@ -155,14 +163,22 @@ import '@material/mwc-checkbox';
 
 render(
     <>
-        <mwc-formfield style={{ display: 'block' }} label="Additions">
+        <style>
+            {`mwc-formfield {
+                display: block;
+            }
+            mwc-checkbox {
+                margin-left: 20px;
+            }`}
+        </style>
+        <mwc-formfield label="Additions">
             <mwc-checkbox indeterminate />
         </mwc-formfield>
         <mwc-formfield label="Pickles">
-            <mwc-checkbox style={{ marginLeft: '20px' }} />
+            <mwc-checkbox />
         </mwc-formfield>
         <mwc-formfield label="Tomato">
-            <mwc-checkbox style={{ marginLeft: '20px' }} checked />
+            <mwc-checkbox checked />
         </mwc-formfield>
     </>
 );

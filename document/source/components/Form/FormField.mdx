@@ -41,40 +41,49 @@ render(
 
 ### nowrap label with checkbox
 
-<Example>
-    <mwc-formfield
-        label="really really long label"
-        nowrap
-        style={{ width: '150px' }}
-    >
+<Example id="nowrap-label-with-checkbox">
+    <style>
+        {`#nowrap-label-with-checkbox mwc-formfield {
+            width: 150px;
+        }`}
+    </style>
+    <mwc-formfield label="really really long label" nowrap>
         <mwc-checkbox />
     </mwc-formfield>
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
+import { render, createCell, Fragment } from 'web-cell';
 import type {} from 'material-cell';
 import '@material/mwc-formfield';
 import '@material/mwc-checkbox';
 
 render(
-    <mwc-formfield
-        label="really really long label"
-        nowrap
-        style={{ width: '150px' }}
-    >
-        <mwc-checkbox />
-    </mwc-formfield>
+    <>
+        <style>
+            {`mwc-formfield {
+                width: 150px;
+            }`}
+        </style>
+        <mwc-formfield label="really really long label" nowrap>
+            <mwc-checkbox />
+        </mwc-formfield>
+    </>
 );
 ```
 
 ### With Radio
 
-<Example>
-    <mwc-formfield label="Home" style={{ display: 'block' }}>
+<Example id="with-radio">
+    <style>
+        {`#with-radio mwc-formfield {
+            display: block;
+        }`}
+    </style>
+    <mwc-formfield label="Home">
         <mwc-radio name="location" checked />
     </mwc-formfield>
-    <mwc-formfield label="Work" style={{ display: 'block' }}>
+    <mwc-formfield label="Work">
         <mwc-radio name="location" />
     </mwc-formfield>
 </Example>
@@ -86,12 +95,19 @@ import '@material/mwc-formfield';
 import '@material/mwc-radio';
 
 render(
-    <mwc-formfield label="Home" style={{ display: 'block' }}>
-        <mwc-radio name="location" checked />
-    </mwc-formfield>
-    <mwc-formfield label="Work" style={{ display: 'block' }}>
-        <mwc-radio name="location" />
-    </mwc-formfield>
+    <>
+        <style>
+            {`mwc-formfield {
+                display: block;
+            }`}
+        </style>
+        <mwc-formfield label="Home">
+            <mwc-radio name="location" checked />
+        </mwc-formfield>
+        <mwc-formfield label="Work">
+            <mwc-radio name="location" />
+        </mwc-formfield>
+    </>
 );
 ```
 
