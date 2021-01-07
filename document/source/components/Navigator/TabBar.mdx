@@ -1,0 +1,449 @@
+---
+title: Tab Bar
+icon: tab
+description: Tabs organize content across different screens, data sets, and other interactions.
+---
+
+import '@material/mwc-tab';
+import '@material/mwc-tab-bar';
+
+import { Example } from '../../../../source/component/Example';
+import { Color } from '../../../../source/component/Color';
+
+[Material Design Guidelines: tabs][1]
+
+## Example usage
+
+### Basic
+
+<Example>
+    <mwc-tab-bar>
+        <mwc-tab label="Tab one" />
+        <mwc-tab label="Tab two" />
+        <mwc-tab label="Tab three" />
+    </mwc-tab-bar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-tab';
+import '@material/mwc-tab-bar';
+
+render(
+    <mwc-tab-bar>
+        <mwc-tab label="Tab one" />
+        <mwc-tab label="Tab two" />
+        <mwc-tab label="Tab three" />
+    </mwc-tab-bar>
+);
+```
+
+### Preselected
+
+<Example>
+    <mwc-tab-bar activeIndex={1}>
+        <mwc-tab label="Tab one" />
+        <mwc-tab label="Tab two" />
+        <mwc-tab label="Tab three" />
+    </mwc-tab-bar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-tab';
+import '@material/mwc-tab-bar';
+
+render(
+    <mwc-tab-bar activeIndex={1}>
+        <mwc-tab label="Tab one" />
+        <mwc-tab label="Tab two" />
+        <mwc-tab label="Tab three" />
+    </mwc-tab-bar>
+);
+```
+
+### Icons
+
+<Example>
+    <mwc-tab-bar>
+        <mwc-tab label="Tab one" icon="accessibility" />
+        <mwc-tab label="Tab two" icon="exit_to_app" />
+        <mwc-tab label="Tab three" icon="camera" />
+    </mwc-tab-bar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-tab';
+import '@material/mwc-tab-bar';
+
+render(
+    <mwc-tab-bar>
+        <mwc-tab label="Tab one" icon="accessibility" />
+        <mwc-tab label="Tab two" icon="exit_to_app" />
+        <mwc-tab label="Tab three" icon="camera" />
+    </mwc-tab-bar>
+);
+```
+
+### Image / Slotted Icons
+
+<Example>
+    <mwc-tab-bar>
+        <mwc-tab label="Tab one" hasImageIcon>
+            <svg
+                slot="icon"
+                width="10px"
+                height="10px"
+                style={{ marginBottom: '7px' }}
+            >
+                <circle r="5px" cx="5px" cy="5px" color="red" />
+            </svg>
+        </mwc-tab>
+        <mwc-tab label="Tab two" hasImageIcon>
+            <svg
+                slot="icon"
+                width="10px"
+                height="10px"
+                style={{ marginBottom: '7px' }}
+            >
+                <rect width="10px" height="10px" color="green" />
+            </svg>
+        </mwc-tab>
+        <mwc-tab label="Tab three" hasImageIcon>
+            <svg
+                slot="icon"
+                width="14.143px"
+                height="14.143px"
+                style={{ marginBottom: '4.928px' }}
+            >
+                <rect
+                    width="10px"
+                    height="10px"
+                    color="blue"
+                    y="2.071px"
+                    x="2.071px"
+                    style={{
+                        transform: 'rotate(45deg)',
+                        transformOrigin: 'center'
+                    }}
+                />
+            </svg>
+        </mwc-tab>
+    </mwc-tab-bar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-tab';
+import '@material/mwc-tab-bar';
+
+render(
+    <mwc-tab-bar>
+        <mwc-tab label="Tab one" hasImageIcon>
+            {/* margin bottom is (24px - height) / 2 */}
+            <svg
+                slot="icon"
+                width="10px"
+                height="10px"
+                style={{ marginBottom: '7px' }}
+            >
+                <circle r="5px" cx="5px" cy="5px" color="red" />
+            </svg>
+        </mwc-tab>
+        <mwc-tab label="Tab two" hasImageIcon>
+            <svg
+                slot="icon"
+                width="10px"
+                height="10px"
+                style={{ marginBottom: '7px' }}
+            >
+                <rect width="10px" height="10px" color="green" />
+            </svg>
+        </mwc-tab>
+        <mwc-tab label="Tab three" hasImageIcon>
+            <svg
+                slot="icon"
+                width="14.143px"
+                height="14.143px"
+                style={{ marginBottom: '4.928px' }}
+            >
+                <rect
+                    width="10px"
+                    height="10px"
+                    color="blue"
+                    y="2.071px"
+                    x="2.071px"
+                    style={{
+                        transform: 'rotate(45deg)',
+                        transformOrigin: 'center'
+                    }}
+                />
+            </svg>
+        </mwc-tab>
+    </mwc-tab-bar>
+);
+```
+
+### Stacked Icons
+
+<Example>
+    <mwc-tab-bar>
+        <mwc-tab label="tab one" icon="accessibility" stacked />
+        <mwc-tab label="tab two" icon="exit_to_app" stacked />
+        <mwc-tab label="tab three" icon="camera" stacked />
+    </mwc-tab-bar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-tab';
+import '@material/mwc-tab-bar';
+
+render(
+    <mwc-tab-bar>
+        <mwc-tab label="tab one" icon="accessibility" stacked />
+        <mwc-tab label="tab two" icon="exit_to_app" stacked />
+        <mwc-tab label="tab three" icon="camera" stacked />
+    </mwc-tab-bar>
+);
+```
+
+### Min-width Indicator (w/ stacked icon)
+
+<Example>
+    <mwc-tab-bar>
+        <mwc-tab
+            label="tab one"
+            icon="accessibility"
+            stacked
+            isMinWidthIndicator
+        />
+        <mwc-tab
+            label="tab two"
+            icon="exit_to_app"
+            stacked
+            isMinWidthIndicator
+        />
+        <mwc-tab label="tab three" icon="camera" stacked isMinWidthIndicator />
+    </mwc-tab-bar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-tab';
+import '@material/mwc-tab-bar';
+
+render(
+    <mwc-tab-bar>
+        <mwc-tab
+            label="tab one"
+            icon="accessibility"
+            stacked
+            isMinWidthIndicator
+        />
+        <mwc-tab
+            label="tab two"
+            icon="exit_to_app"
+            stacked
+            isMinWidthIndicator
+        />
+        <mwc-tab label="tab three" icon="camera" stacked isMinWidthIndicator />
+    </mwc-tab-bar>
+);
+```
+
+### Icon Indicator (w/ stacked icon)
+
+<Example>
+    <mwc-tab-bar>
+        <mwc-tab icon="camera" indicatorIcon="donut_large" />
+        <mwc-tab icon="accessibility" indicatorIcon="donut_large" />
+        <mwc-tab icon="exit_to_app" indicatorIcon="donut_large" />
+    </mwc-tab-bar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-tab';
+import '@material/mwc-tab-bar';
+
+render(
+    <mwc-tab-bar>
+        <mwc-tab icon="camera" indicatorIcon="donut_large" />
+        <mwc-tab icon="accessibility" indicatorIcon="donut_large" />
+        <mwc-tab icon="exit_to_app" indicatorIcon="donut_large" />
+    </mwc-tab-bar>
+);
+```
+
+### Scrollable
+
+When the contents of `mwc-tab-bar` exceed its width, the overflow tabs are made
+scrollable along the x axis.
+
+<Example id="scrollable">
+    <style>
+        {`#scrollable mwc-tab-bar {
+            border: solid black 1px;
+        }`}
+    </style>
+    <mwc-tab-bar>
+        <mwc-tab label="Tab one" />
+        <mwc-tab label="Tab two" />
+        <mwc-tab label="Tab three" />
+        <mwc-tab label="Tab four" />
+        <mwc-tab label="Tab five" />
+        <mwc-tab label="Tab six" />
+        <mwc-tab label="Tab seven" />
+        <mwc-tab label="Tab eight" />
+        <mwc-tab label="Tab nine" />
+        <mwc-tab label="Tab ten" />
+        <mwc-tab label="Tab eleven" />
+        <mwc-tab label="Tab twelve" />
+    </mwc-tab-bar>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-tab';
+import '@material/mwc-tab-bar';
+
+render(
+    <>
+        <style>
+            {`mwc-tab-bar {
+                border: solid black 1px;
+            }`}
+        </style>
+        <mwc-tab-bar>
+            <mwc-tab label="Tab one" />
+            <mwc-tab label="Tab two" />
+            <mwc-tab label="Tab three" />
+            <mwc-tab label="Tab four" />
+            <mwc-tab label="Tab five" />
+            <mwc-tab label="Tab six" />
+            <mwc-tab label="Tab seven" />
+            <mwc-tab label="Tab eight" />
+            <mwc-tab label="Tab nine" />
+            <mwc-tab label="Tab ten" />
+            <mwc-tab label="Tab eleven" />
+            <mwc-tab label="Tab twelve" />
+        </mwc-tab-bar>
+    </>
+);
+```
+
+### Styled
+
+_Note: example is in the state of hovering over the first tab._
+
+<Example id="styled">
+    <style>
+        {`#styled mwc-tab-bar {
+            --mdc-theme-primary: red;
+            --mdc-text-transform: none;
+            --mdc-tab-color-default: green;
+            --mdc-tab-text-label-color-default: green;
+            --mdc-tab-stacked-height: 100px;
+        }`}
+    </style>
+    <mwc-tab-bar>
+        <mwc-tab
+            label="tab one"
+            icon="accessibility"
+            stacked
+            isMinWidthIndicator
+        />
+        <mwc-tab
+            label="tab two"
+            icon="exit_to_app"
+            stacked
+            isMinWidthIndicator
+        />
+        <mwc-tab label="tab three" icon="camera" stacked isMinWidthIndicator />
+    </mwc-tab-bar>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-tab';
+import '@material/mwc-tab-bar';
+
+render(
+    <>
+        <style>
+            {`mwc-tab-bar {
+                --mdc-theme-primary: red;
+                --mdc-text-transform: none;
+                --mdc-tab-color-default: green;
+                --mdc-tab-text-label-color-default: green;
+                --mdc-tab-stacked-height: 100px;
+            }`}
+        </style>
+        <mwc-tab-bar>
+            <mwc-tab
+                label="tab one"
+                icon="accessibility"
+                stacked
+                isMinWidthIndicator
+            />
+            <mwc-tab
+                label="tab two"
+                icon="exit_to_app"
+                stacked
+                isMinWidthIndicator
+            />
+            <mwc-tab label="tab three" icon="camera" stacked isMinWidthIndicator />
+        </mwc-tab-bar>
+    </>
+);
+```
+
+## API
+
+### Slots
+
+| Name      | Description                         |
+| --------- | ----------------------------------- |
+| _default_ | [`mwc-tab`][2] elements to display. |
+
+### Properties/Attributes
+
+| Name          | Type     | Default | Description                  |
+| ------------- | -------- | ------- | ---------------------------- |
+| `activeIndex` | `number` | `0`     | Index of tab that is active. |
+
+### Methods
+
+| Name                                        | Description                                                                    |
+| ------------------------------------------- | ------------------------------------------------------------------------------ |
+| `scrollIndexIntoView(index:number) => void` | For long, scrollable `tab-bar`s, scrolls the tab at the given index into view. |
+
+### Events
+
+| Event Name            | Target        | Detail            | Description                                 |
+| --------------------- | ------------- | ----------------- | ------------------------------------------- |
+| `MDCTabBar:activated` | `mwc-tab-bar` | `{index: number}` | Emitted when a tab selection has been made. |
+
+### CSS Custom Properties
+
+Inherits CSS Custom properties from:
+
+-   [`mwc-tab`][2]
+
+## Additional references
+
+-   [MDC Web tabs][1]
+
+[1]: https://material.io/components/tabs/
+[2]: components/navigator/tab
