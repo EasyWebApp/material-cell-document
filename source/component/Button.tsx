@@ -1,5 +1,6 @@
 import { createCell } from 'web-cell';
 import { HTMLHyperLinkProps } from 'web-utility/source/DOM-type';
+import classNames from 'classnames';
 import type {} from 'material-cell';
 import '@material/mwc-button';
 
@@ -32,7 +33,11 @@ export function Button({
     );
 
     return href ? (
-        <a {...props} {...{ href, target }}>
+        <a
+            {...props}
+            {...{ href, target }}
+            className={classNames('text-decoration-none', props.className)}
+        >
             {button}
         </a>
     ) : (

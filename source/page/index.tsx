@@ -95,6 +95,24 @@ export function PageRouter() {
                             table.classList.add('table');
                     }}
                 />
+                <footer className="text-center bg-light py-5">
+                    Proudly developed with
+                    <a
+                        className="mx-1"
+                        target="_blank"
+                        href="https://web-cell.dev/"
+                    >
+                        WebCell v2
+                    </a>
+                    &amp;
+                    <a
+                        className="mx-1"
+                        target="_blank"
+                        href="https://material.web-cell.dev/"
+                    >
+                        Material Cell v2
+                    </a>
+                </footer>
             </mwc-top-app-bar-fixed>
         </mwc-drawer>
     );

@@ -43,13 +43,13 @@
         "classnames": "^2.2.6",
         "github-web-widget": "^3.0.0-beta.8",
         "material-cell": "^2.0.0-rc.2",
-        "web-cell": "^2.3.0-beta.5",
+        "web-cell": "^2.3.0-beta.6",
         "web-utility": "^2.4.1"
     },
     "devDependencies": {
         "@types/classnames": "^2.2.11",
         "autoprefixer": "^9.8.6",
-        "husky": "^4.3.6",
+        "husky": "^4.3.7",
         "less": "^4.0.0",
         "lint-staged": "^10.5.3",
         "mark-cell": "^0.4.8",

@@ -1,0 +1,217 @@
+---
+title: Drawer
+icon: menu
+description: The Navigation Drawer is used to organize access to destinations and other functionality on an app.
+---
+
+import '@material/mwc-drawer';
+import '@material/mwc-top-app-bar';
+import '@material/mwc-icon-button';
+import { Embed } from 'boot-cell/source/Media/Embed';
+
+import { Example } from '../../../../source/component/Example';
+
+[Material Design Guidelines: Navigation Drawer][1]
+
+## Example usage
+
+### Standard
+
+<Example>
+    <Embed is="iframe" src="test/#drawer" />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-drawer';
+import '@material/mwc-top-app-bar';
+
+render(
+    <mwc-drawer>
+        <div>
+            <p>Drawer Content!</p>
+        </div>
+        <div slot="appContent">
+            <mwc-top-app-bar>
+                <div slot="title">Title</div>
+            </mwc-top-app-bar>
+            <div>
+                <p>Main Content!</p>
+            </div>
+        </div>
+    </mwc-drawer>
+);
+```
+
+**NOTE:** When using an inline-drawer (i.e. non-modal drawer) with a [`top-app-bar`][2],
+the app-bar is shifted to the right unlike the body content since its position
+is fixed. This may cause issues with action items on the `top-app-bar` to be
+shifted off screen. To remedy this, you should readjust the size of the
+`top-app-bar` based on the width of the drawer when the drawer is open. Here is
+an example of how to do this:
+
+```css
+mwc-drawer[open] top-app-bar {
+    /* Default width of drawer is 256px. See CSS Custom Properties below */
+    --mdc-top-app-bar-width: calc(100% - var(--mdc-drawer-width, 256px));
+}
+```
+
+### Standard with Header
+
+<Example>
+    <Embed is="iframe" src="test/#drawer?hasHeader=true" />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-drawer';
+import '@material/mwc-top-app-bar';
+
+render(
+    <mwc-drawer hasHeader>
+        <span slot="title">Drawer Title</span>
+        <span slot="subtitle">subtitle</span>
+        <div>
+            <p>Drawer Content!</p>
+        </div>
+        <div slot="appContent">
+            <mwc-top-app-bar>
+                <div slot="title">Title</div>
+            </mwc-top-app-bar>
+            <div>
+                <p>Main Content!</p>
+            </div>
+        </div>
+    </mwc-drawer>
+);
+```
+
+### Dismissible
+
+<Example>
+    <Embed is="iframe" src="test/#drawer?hasHeader=true&amp;type=dismissible" />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-drawer';
+import '@material/mwc-top-app-bar';
+import '@material/mwc-icon-button';
+
+render(
+    <mwc-drawer hasHeader type="dismissible">
+        <span slot="title">Drawer Title</span>
+        <span slot="subtitle">subtitle</span>
+        <div>
+            <p>Drawer Content!</p>
+            <mwc-icon-button icon="gesture" />
+            <mwc-icon-button icon="gavel" />
+        </div>
+        <div slot="appContent">
+            <mwc-top-app-bar>
+                <mwc-icon-button slot="navigationIcon" icon="menu" />
+                <div slot="title">Title</div>
+            </mwc-top-app-bar>
+            <div>
+                <p>Main Content!</p>
+            </div>
+        </div>
+    </mwc-drawer>
+);
+```
+
+### Modal
+
+<Example>
+    <Embed is="iframe" src="test/#drawer?hasHeader=true&amp;type=modal" />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-drawer';
+import '@material/mwc-top-app-bar';
+import '@material/mwc-icon-button';
+
+render(
+    <mwc-drawer hasHeader type="modal">
+        <span slot="title">Drawer Title</span>
+        <span slot="subtitle">subtitle</span>
+        <div>
+            <p>Drawer Content!</p>
+            <mwc-icon-button icon="gesture" />
+            <mwc-icon-button icon="gavel" />
+        </div>
+        <div slot="appContent">
+            <mwc-top-app-bar>
+                <mwc-icon-button slot="navigationIcon" icon="menu" />
+                <div slot="title">Title</div>
+            </mwc-top-app-bar>
+            <div>
+                <p>Main Content!</p>
+            </div>
+        </div>
+    </mwc-drawer>
+);
+```
+
+## API
+
+### Slots
+
+| Name         | Description                                                                     |
+| ------------ | ------------------------------------------------------------------------------- |
+| `title`      | Header title to display in the drawer when `hasHeader` is true.                 |
+| `subtitle`   | Header subtitle to display in the drawer when `hasHeader` is true.              |
+| `header`     | Additional header elements to display in the drawer.                            |
+| `appContent` | Elements to display in the "app content" to the right of, or under, the drawer. |
+| _default_    | Elements to display under the header in drawer.                                 |
+
+### Properties/Attributes
+
+| Name        | Type      | Default | Description                                                                                                                                                                                                         |
+| ----------- | --------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `open`      | `boolean` | `false` | Whether the dialog is open                                                                                                                                                                                          |
+| `hasHeader` | `boolean` | `false` | When `true`, displays the `title`, `subtitle`, and `header` slots.                                                                                                                                                  |
+| `type`      | `string`  | `''`    | When set to `'dismissible'`, overlays the drawer on the content. When set to `'modal'`, also adds a scrim when the drawer is open. When set to empty string, it is inlined with the page and displaces app content. |
+
+### Methods
+
+_None_
+
+### Events
+
+| Name               | Detail | Description                   |
+| ------------------ | ------ | ----------------------------- |
+| `MDCDrawer:opened` | `{}`   | Fired when the drawer opens.  |
+| `MDCDrawer:closed` | `{}`   | Fired when the drawer closes. |
+
+### CSS Custom Properties
+
+| Name                 | Default | Description                           |
+| -------------------- | ------- | ------------------------------------- |
+| `--mdc-drawer-width` | `256px` | Width of the side drawer when opened. |
+
+### Global CSS Custom Properties
+
+This component exposes the following global [theming][3] custom properties.
+
+| Name                                    | Detail                                            | Description |
+| --------------------------------------- | ------------------------------------------------- | ----------- |
+| `--mdc-theme-surface`                   | The background color of the drawer.               |
+| `--mdc-typography-headline6-<PROPERTY>` | Styles the typography of the drawer's title.      |
+| `--mdc-typography-body2-<PROPERTY>`     | Styles the typography of the drawer's subtitle.   |
+| `--mdc-typography-subtitle2-<PROPERTY>` | Styles the typography of the drawer's list items. |
+
+### Additional References
+
+-   [MDC Web Drawers][4]
+
+[1]: https://material.io/components/navigation-drawer/
+[2]: components/navigator/top-app-bar
+[3]: https://github.com/material-components/material-components-web-components/blob/master/docs/theming.md
+[4]: https://material.io/develop/web/components/drawers/
