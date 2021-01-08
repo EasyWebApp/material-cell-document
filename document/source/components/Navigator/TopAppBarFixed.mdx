@@ -1,0 +1,251 @@
+---
+title: Top App Bar Fixed
+icon: ad_units
+description: Fixed Top App Bars are a container for items such as application title, navigation icon, and action items that are always visible.
+---
+
+import '@material/mwc-top-app-bar-fixed';
+import '@material/mwc-icon-button';
+import { Embed } from 'boot-cell/source/Media/Embed';
+
+import { Example } from '../../../../source/component/Example';
+
+For a version of this component that scrolls, see [`<mwc-top-app-bar>`][1]
+
+[Material Design Guidelines: App Bars: Top][2]
+
+## Example Usage
+
+### Standard
+
+<Example>
+    <Embed
+        is="iframe"
+        style={{ height: '4rem' }}
+        src="test/#top-app-bar?fixed=true&amp;title=Title"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-top-app-bar-fixed';
+import '@material/mwc-icon-button';
+
+render(
+    <mwc-top-app-bar-fixed>
+        <mwc-icon-button icon="menu" slot="navigationIcon" />
+        <div slot="title">Title</div>
+        <mwc-icon-button icon="file_download" slot="actionItems" />
+        <mwc-icon-button icon="print" slot="actionItems" />
+        <mwc-icon-button icon="favorite" slot="actionItems" />
+        <div>content</div>
+    </mwc-top-app-bar-fixed>
+);
+```
+
+### Center Title
+
+<Example>
+    <Embed
+        is="iframe"
+        style={{ height: '4rem' }}
+        src="test/#top-app-bar?fixed=true&amp;title=Title&amp;centerTitle=true"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-top-app-bar-fixed';
+import '@material/mwc-icon-button';
+
+render(
+    <mwc-top-app-bar-fixed centerTitle>
+        <mwc-icon-button icon="menu" slot="navigationIcon" />
+        <div slot="title">Title</div>
+        <mwc-icon-button icon="favorite" slot="actionItems" />
+        <div>content</div>
+    </mwc-top-app-bar-fixed>
+);
+```
+
+### Dense
+
+<Example>
+    <Embed
+        is="iframe"
+        style={{ height: '3rem' }}
+        src="test/#top-app-bar?fixed=true&amp;title=Title&amp;dense=true"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-top-app-bar-fixed';
+import '@material/mwc-icon-button';
+
+render(
+    <mwc-top-app-bar-fixed dense>
+        <mwc-icon-button icon="menu" slot="navigationIcon" />
+        <div slot="title">Title</div>
+        <mwc-icon-button icon="file_download" slot="actionItems" />
+        <mwc-icon-button icon="print" slot="actionItems" />
+        <mwc-icon-button icon="favorite" slot="actionItems" />
+        <div>content</div>
+    </mwc-top-app-bar-fixed>
+);
+```
+
+### Prominent
+
+<Example>
+    <Embed
+        is="iframe"
+        style={{ height: '8rem' }}
+        src="test/#top-app-bar?fixed=true&amp;title=Title&amp;prominent=true"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-top-app-bar-fixed';
+import '@material/mwc-icon-button';
+
+render(
+    <mwc-top-app-bar-fixed dense>
+        <mwc-icon-button icon="menu" slot="navigationIcon" />
+        <div slot="title">Title</div>
+        <mwc-icon-button icon="file_download" slot="actionItems" />
+        <mwc-icon-button icon="print" slot="actionItems" />
+        <mwc-icon-button icon="favorite" slot="actionItems" />
+        <div>content</div>
+    </mwc-top-app-bar-fixed>
+);
+```
+
+### Prominent and Dense
+
+<Example>
+    <Embed
+        is="iframe"
+        style={{ height: '6rem' }}
+        src="test/#top-app-bar?fixed=true&amp;title=Title&amp;prominent=true&amp;dense=true"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-top-app-bar-fixed';
+import '@material/mwc-icon-button';
+
+render(
+    <mwc-top-app-bar-fixed prominent dense>
+        <mwc-icon-button icon="menu" slot="navigationIcon" />
+        <div slot="title">Title</div>
+        <mwc-icon-button icon="file_download" slot="actionItems" />
+        <mwc-icon-button icon="print" slot="actionItems" />
+        <mwc-icon-button icon="favorite" slot="actionItems" />
+        <div>content</div>
+    </mwc-top-app-bar-fixed>
+);
+```
+
+### Customize Colors
+
+<Example>
+    <Embed
+        is="iframe"
+        style={{ height: '4rem' }}
+        src="test/#top-app-bar?fixed=true&amp;title=Custom%20Colors&amp;customColor=true"
+    />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import type {} from 'material-cell';
+import '@material/mwc-top-app-bar-fixed';
+import '@material/mwc-icon-button';
+
+render(
+    <>
+        <style>
+            {`mwc-top-app-bar-fixed {
+                --mdc-theme-primary: orange;
+                --mdc-theme-on-primary: black;
+            }`}
+        </style>
+        <mwc-top-app-bar-fixed>
+            <mwc-icon-button icon="menu" slot="navigationIcon" />
+            <div slot="title">Custom Colors</div>
+            <mwc-icon-button icon="file_download" slot="actionItems" />
+            <mwc-icon-button icon="print" slot="actionItems" />
+            <mwc-icon-button icon="favorite" slot="actionItems" />
+            <div>content</div>
+        </mwc-top-app-bar-fixed>
+    </>
+);
+```
+
+## API
+
+### Slots
+
+| Name             | Description                                                                                                                                                                    |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `actionItems`    | A number of `<mwc-icon-button>` elements to use for action icons on the right side. _NOTE:_ If using with `mwc-drawer`, please read note under [`Standard` drawer example][3]. |
+| `navigationIcon` | One `<mwc-icon-button>` element to use for the left icon.                                                                                                                      |
+| `title`          | A `<div>` or `<span>` that will be used as the title text.                                                                                                                     |
+| _default_        | Scrollable content to display under the bar. This may be the entire application.                                                                                               |
+
+### Properties/Attributes
+
+| Name           | Type                      | Default  | Description                                                                      |
+| -------------- | ------------------------- | -------- | -------------------------------------------------------------------------------- |
+| `centerTitle`  | `boolean`                 | `false`  | Centers the title horizontally. Only meant to be used with 0 or 1 `actionItems`. |
+| `dense`        | `boolean`                 | `false`  | Makes the bar a little smaller for higher density applications.                  |
+| `prominent`    | `boolean`                 | `false`  | Makes the bar much taller, can be combined with `dense`.                         |
+| `scrollTarget` | `HTMLElement` \| `Window` | `window` | Element used to listen for `scroll` events.                                      |
+
+### Methods
+
+_None_
+
+### Events
+
+| Name               | Detail | Description                                 |
+| ------------------ | ------ | ------------------------------------------- |
+| `MDCTopAppBar:nav` | `{}`   | Fired when the `navigationIcon` is clicked. |
+
+### CSS Custom Properties
+
+| Name                                 | Default         | Description                                                  |
+| ------------------------------------ | --------------- | ------------------------------------------------------------ |
+| `--mdc-top-app-bar-fixed-box-shadow` | mdc elevation 4 | Sets the box shadow of the fixed top app bar when scrolling. |
+| `--mdc-top-app-bar-width`            | `100%`          | Width of the `top-app-bar` in relation to the Window.        |
+
+#### Elevation values
+
+| Elevation Level | CSS Value                                                                                                        |
+| --------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `4`             | `0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)` |
+
+#### Global Custom Properties
+
+| Name                                    | Description                                     |
+| --------------------------------------- | ----------------------------------------------- |
+| `--mdc-theme-primary`                   | Background color of the bar                     |
+| `--mdc-theme-on-primary`                | Text color of the title, and icon colors        |
+| `--mdc-typography-headline6-<PROPERTY>` | Styles the typography of the top-app-bar title. |
+
+## Additional references
+
+-   [MDC Web: Top App Bar][4]
+
+[1]: components/navigator/top-app-bar
+[2]: https://material.io/design/components/app-bars-top.html
+[3]: components/navigator/drawer
+[4]: https://material.io/develop/web/components/top-app-bar/

@@ -1,6 +1,6 @@
 {
     "name": "material-cell-document",
-    "version": "1.0.0-alpha",
+    "version": "1.0.0-beta",
     "license": "AGPL-3.0",
     "author": "shiy2008@gmail.com",
     "homepage": "https://material.web-cell.dev/",
@@ -36,6 +36,7 @@
         "@material/mwc-tab-bar": "^0.20.0",
         "@material/mwc-textarea": "^0.20.0",
         "@material/mwc-textfield": "^0.20.0",
+        "@material/mwc-top-app-bar": "^0.20.0",
         "@material/mwc-top-app-bar-fixed": "^0.20.0",
         "boot-cell": "^1.9.2",
         "cell-router": "^2.0.4",
@@ -79,8 +80,8 @@
         "test": "lint-staged",
         "pack-mdx": "mark-cell document/source -p web-cell -f createCell",
         "pack-tsx": "parcel build source/index.html --public-url .",
-        "pack-test": "cd document/test/DrawerNav/  &&  parcel build index.html --public-url . -d ../../../dist/test/DrawerNav/",
-        "build": "rm -rf dist/ document/dist/  &&  npm run pack-mdx  &&  npm run pack-tsx  &&  workbox generateSW",
+        "pack-test": "cd document/test/  &&  parcel build index.html --public-url . -d ../../dist/test/",
+        "build": "rm -rf dist/ document/dist/  &&  npm run pack-mdx  &&  npm run pack-tsx  &&  npm run pack-test  &&  workbox generateSW",
         "start": "npm run pack-mdx  &&  parcel source/index.html --open"
     },
     "husky": {
