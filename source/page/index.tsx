@@ -89,13 +89,13 @@ export function PageRouter() {
                 <CellRouter
                     {...{ history, routes }}
                     onPageRender={({ target }) => {
-                        for (const table of (target as HTMLElement).querySelectorAll(
-                            'article table:not([class])'
-                        ))
+                        for (const table of (
+                            target as HTMLElement
+                        ).querySelectorAll('article table:not([class])'))
                             table.classList.add('table');
                     }}
                 />
-                <footer className="text-center bg-light py-5">
+                <footer className="text-center py-5">
                     Proudly developed with
                     <a
                         className="mx-1"
