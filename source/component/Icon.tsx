@@ -1,19 +1,17 @@
-import { createCell } from 'web-cell';
-import { HTMLHyperLinkProps } from 'web-utility/source/DOM-type';
-import type { TextColors } from 'boot-cell/source/utility/constant';
-import type {} from 'material-cell';
-import '@material/mwc-icon';
+import { FC, WebCellProps } from 'web-cell';
+import type { Color } from 'boot-cell';
+import '@material/web/icon';
 import classNames from 'classnames';
 
-type Props = JSX.IntrinsicElements['mwc-icon'];
+type Props = JSX.IntrinsicElements['md-icon'];
 
 export interface IconProps
     extends Props,
-        Pick<HTMLHyperLinkProps, 'href' | 'target'> {
-    color?: TextColors;
+        Pick<WebCellProps<HTMLAnchorElement>, 'href' | 'target'> {
+    color?: Color;
 }
 
-export function Icon({
+export const Icon: FC<IconProps> = ({
     className,
     style,
     title,
@@ -21,9 +19,9 @@ export function Icon({
     href,
     target,
     color,
-    defaultSlot,
+    children,
     ...rest
-}: IconProps) {
+}) => {
     const props = {
         className: classNames(color && `text-${color}`, className),
         style,
@@ -31,9 +29,9 @@ export function Icon({
         slot
     };
     const icon = (
-        <mwc-icon {...(href ? null : props)} {...rest}>
-            {defaultSlot}
-        </mwc-icon>
+        <md-icon {...(href ? null : props)} {...rest}>
+            {children}
+        </md-icon>
     );
 
     return href ? (
@@ -43,4 +41,4 @@ export function Icon({
     ) : (
         icon
     );
-}
+};

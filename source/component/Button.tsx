@@ -1,46 +1,44 @@
-import { createCell } from 'web-cell';
-import { HTMLHyperLinkProps } from 'web-utility/source/DOM-type';
-import classNames from 'classnames';
-import type {} from 'material-cell';
-import '@material/mwc-button';
+import { FC, WebCellProps } from 'web-cell';
 
-type Props = JSX.IntrinsicElements['mwc-button'];
+import '@material/web/button/filled-button';
+import '@material/web/icon/icon';
+
+type Props = JSX.IntrinsicElements['md-filled-button'];
 
 export interface ButtonProps
-    extends Props,
-        Pick<HTMLHyperLinkProps, 'href' | 'target'> {}
+    extends Omit<Props, 'target'>,
+        Pick<WebCellProps<HTMLAnchorElement>, 'href' | 'target'> {
+    icon?: string;
+}
 
-export function Button({
-    className,
+export const Button: FC<ButtonProps> = ({
+    className = '',
     style,
     title,
     slot,
+    icon,
     href,
     target,
-    defaultSlot,
+    children,
     ...rest
-}: ButtonProps) {
-    const props = {
-        className,
-        style,
-        title,
-        slot
-    };
+}) => {
+    const props = { className, style, title, slot };
     const button = (
-        <mwc-button {...(href ? null : props)} {...rest}>
-            {defaultSlot}
-        </mwc-button>
+        <md-filled-button {...(href ? null : props)} {...rest}>
+            {icon && <md-icon slot="icon">{icon}</md-icon>}
+            {children}
+        </md-filled-button>
     );
 
     return href ? (
         <a
             {...props}
             {...{ href, target }}
-            className={classNames('text-decoration-none', props.className)}
+            className={`text-decoration-none ${props.className}`}
         >
             {button}
         </a>
     ) : (
         button
     );
-}
+};
