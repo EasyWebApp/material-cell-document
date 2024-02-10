@@ -1,13 +1,12 @@
 {
     "compilerOptions": {
-        "target": "ES5",
+        "target": "ES6",
         "module": "ESNext",
         "moduleResolution": "Node",
         "downlevelIteration": true,
-        "experimentalDecorators": true,
-        "jsx": "react",
-        "jsxFactory": "createCell",
-        "jsxFragmentFactory": "Fragment",
+        "useDefineForClassFields": true,
+        "jsx": "react-jsx",
+        "jsxImportSource": "dom-renderer",
         "lib": ["ES2020", "DOM", "DOM.Iterable"]
     }
 }

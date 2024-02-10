@@ -1,35 +1,27 @@
-import { createCell } from 'web-cell';
-import { HTMLHyperLinkProps } from 'web-utility/source/DOM-type';
 import classNames from 'classnames';
-import type {} from 'material-cell';
-import '@material/mwc-button';
+import { FC, WebCellProps } from 'web-cell';
+import '@material/web/all';
 
-type Props = JSX.IntrinsicElements['mwc-button'];
+type Props = JSX.IntrinsicElements['md-filled-button'];
 
-export interface ButtonProps
-    extends Props,
-        Pick<HTMLHyperLinkProps, 'href' | 'target'> {}
+export type ButtonProps = Props &
+    Pick<WebCellProps<HTMLAnchorElement>, 'href' | 'target'>;
 
-export function Button({
+export const Button: FC<ButtonProps> = ({
     className,
     style,
     title,
     slot,
     href,
     target,
-    defaultSlot,
+    children,
     ...rest
-}: ButtonProps) {
-    const props = {
-        className,
-        style,
-        title,
-        slot
-    };
+}) => {
+    const props = { className, style, title, slot };
     const button = (
-        <mwc-button {...(href ? null : props)} {...rest}>
-            {defaultSlot}
-        </mwc-button>
+        <md-filled-button {...(href ? null : props)} {...rest}>
+            {children}
+        </md-filled-button>
     );
 
     return href ? (
@@ -43,4 +35,4 @@ export function Button({
     ) : (
         button
     );
-}
+};
