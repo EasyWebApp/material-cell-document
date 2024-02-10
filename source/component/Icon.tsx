@@ -1,6 +1,6 @@
 import { FC, WebCellProps } from 'web-cell';
 import type { Color } from 'boot-cell';
-import '@material/web/all';
+import '@material/web/icon';
 import classNames from 'classnames';
 
 type Props = JSX.IntrinsicElements['md-icon'];

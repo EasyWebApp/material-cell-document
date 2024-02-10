@@ -1,17 +1,22 @@
-import classNames from 'classnames';
 import { FC, WebCellProps } from 'web-cell';
-import '@material/web/all';
+
+import '@material/web/button/filled-button';
+import '@material/web/icon/icon';
 
 type Props = JSX.IntrinsicElements['md-filled-button'];
 
-export type ButtonProps = Props &
-    Pick<WebCellProps<HTMLAnchorElement>, 'href' | 'target'>;
+export interface ButtonProps
+    extends Omit<Props, 'target'>,
+        Pick<WebCellProps<HTMLAnchorElement>, 'href' | 'target'> {
+    icon?: string;
+}
 
 export const Button: FC<ButtonProps> = ({
-    className,
+    className = '',
     style,
     title,
     slot,
+    icon,
     href,
     target,
     children,
@@ -20,6 +25,7 @@ export const Button: FC<ButtonProps> = ({
     const props = { className, style, title, slot };
     const button = (
         <md-filled-button {...(href ? null : props)} {...rest}>
+            {icon && <md-icon slot="icon">{icon}</md-icon>}
             {children}
         </md-filled-button>
     );
@@ -28,7 +34,7 @@ export const Button: FC<ButtonProps> = ({
         <a
             {...props}
             {...{ href, target }}
-            className={classNames('text-decoration-none', props.className)}
+            className={`text-decoration-none ${props.className}`}
         >
             {button}
         </a>

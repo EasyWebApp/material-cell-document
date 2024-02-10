@@ -1,7 +1,7 @@
-declare module '*.less' {
+declare module '*.module.less' {
     const map: Record<string, string>;
 
-    export default map;
+    export = map;
 }
 declare module '*.png' {
     const path: string;

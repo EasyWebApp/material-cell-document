@@ -1,9 +1,11 @@
 import { FC } from 'web-cell';
 import { createRouter } from 'cell-router';
-import '@material/web/all';
+import '@material/web/list/list';
 
 import { DocumentBox } from '../component/DocumentBox';
 import { Icon } from '../component/Icon';
+import { Drawer } from '../component/Drawer';
+import { HomePage } from './Home';
 
 // import documents from '../../document/dist';
 // import { HomePage } from './Home';
@@ -47,10 +49,10 @@ document.addEventListener(
 );
 
 export const PageRouter: FC = () => (
-    <md-drawer hasHeader type="modal">
-        <span slot="title">Components</span>
-        <md-list>
-            {/* {documents.map(({ paths: [href], meta: { title, icon } }) => (
+    <div className="d-flex flex-column" style={{ height: '300vh' }}>
+        <Drawer title="Material Design Web components">
+            <md-list>
+                {/* {documents.map(({ paths: [href], meta: { title, icon } }) => (
                 <md-list-item graphic="icon">
                     <md-icon slot="graphic">{icon}</md-icon>
                     <a
@@ -66,20 +68,11 @@ export const PageRouter: FC = () => (
                     </a>
                 </md-list-item>
             ))} */}
-        </md-list>
-        <md-top-app-bar-fixed slot="appContent">
-            <md-icon-button slot="navigationIcon">
-                <md-icon>menu</md-icon>
-            </md-icon-button>
-            <Icon
-                slot="actionItems"
-                className="align-middle mr-2"
-                color="light"
-                title="Source code"
-                href="https://github.com/EasyWebApp/material-cell"
-            >
-                code
-            </Icon>
+            </md-list>
+        </Drawer>
+
+        <main className="flex-fill overflow-auto scrollbar-none">
+            <Route path="" component={HomePage} />
             {/* <CellRouter
                 {...{ history, routes }}
                 onPageRender={({ target }) => {
@@ -89,24 +82,21 @@ export const PageRouter: FC = () => (
                         table.classList.add('table');
                 }}
             /> */}
-            <footer className="text-center py-5">
-                Proudly developed with
-                <a
-                    className="mx-1"
-                    target="_blank"
-                    href="https://web-cell.dev/"
-                >
-                    WebCell v3
-                </a>
-                &amp;
-                <a
-                    className="mx-1"
-                    target="_blank"
-                    href="https://material.web-cell.dev/"
-                >
-                    Material Cell v2
-                </a>
-            </footer>
-        </md-top-app-bar-fixed>
-    </md-drawer>
+        </main>
+
+        <footer className="text-center py-5">
+            Proudly developed with
+            <a className="mx-1" target="_blank" href="https://web-cell.dev/">
+                WebCell v3
+            </a>
+            &amp;
+            <a
+                className="mx-1"
+                target="_blank"
+                href="https://material-web.dev/"
+            >
+                Material Design Web components v1
+            </a>
+        </footer>
+    </div>
 );
